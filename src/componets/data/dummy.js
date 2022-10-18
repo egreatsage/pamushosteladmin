@@ -1,0 +1,29 @@
+import {AiFillSetting} from 'react-icons/ai'
+export const links =[
+    {
+        title:'Dashboard',
+        links:[
+            {
+                name:'Dashboard',
+                icon:<AiFillSetting/>
+            }
+        ]
+    },
+    {
+        title:'Pages',
+        links:[
+            {
+                name:'Bookings',
+                icon:<AiFillSetting/>
+            },
+            {
+                name:'Employees',
+                icon:<AiFillSetting/>
+            },
+            {
+                name:'Messages',
+                icon:<AiFillSetting/>
+            },
+        ],
+    }
+]
