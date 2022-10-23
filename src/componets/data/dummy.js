@@ -1,4 +1,4 @@
-import {AiFillSetting} from 'react-icons/ai'
+import {AiFillSetting,AiOutlineUserSwitch} from 'react-icons/ai'
 export const links =[
     {
         title:'Dashboard',
@@ -25,5 +25,43 @@ export const links =[
                 icon:<AiFillSetting/>
             },
         ],
+    }
+]
+export const sidedata = [
+    {
+        title:'Dashboard',
+        path:'/',
+        icon:<AiOutlineUserSwitch/>,
+        cName:'nav-text'
+    },
+    {
+        title:'Bookings',
+        path:'/bookings',
+        icon:<AiOutlineUserSwitch/>,
+        cName:'nav-text'
+    },
+    {
+        title:'Occupants',
+        path:'/occupants',
+        icon:<AiOutlineUserSwitch/>,
+        cName:'nav-text'
+    },
+    {
+        title:'Employees',
+        path:'/employees',
+        icon:<AiOutlineUserSwitch/>,
+        cName:'nav-text'
+    },
+    {
+        title:'Rooms',
+        path:'/rooms',
+        icon:<AiOutlineUserSwitch/>,
+        cName:'nav-text'
+    },
+    {
+        title:'Users',
+        path:'/users',
+        icon:<AiOutlineUserSwitch/>,
+        cName:'nav-text'
     }
 ]

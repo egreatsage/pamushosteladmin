@@ -1,7 +1,7 @@
 import { Menu, MenuHandler, MenuItem, MenuList } from '@material-tailwind/react'
 import { Avatar, Button, IconButton, Tooltip } from '@mui/material'
 import React from 'react'
-import { AiOutlineLogout } from 'react-icons/ai'
+import {  AiOutlineLogout } from 'react-icons/ai'
 import Sidebar from './Sidebar'
 import {useUserAuth} from '../contexts/UserAuthContext'
 const Navbar = () => {
@@ -12,9 +12,10 @@ const Navbar = () => {
     }catch{     
     }
   }
+  
   return (
-    
-    <div className='relative flex justify-between p-2 bg-gray-100 '>
+    <div>
+        <div className='relative flex justify-between  p-2 bg-gray-100 '>
       <Sidebar/>
 
       <p className='md:text-2xl text pt-2 text-xl'>Pamus Hostel</p>
@@ -46,6 +47,10 @@ const Navbar = () => {
 
     </div> 
     </div>
+  
+  
+    </div>
+  
     
  
    

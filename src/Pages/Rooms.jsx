@@ -3,7 +3,8 @@ import { Navbar } from '../componets'
 
 function Rooms() {
   return (
-    <div>   
+    <div>  
+      Rooms 
     </div>
   )
 }
