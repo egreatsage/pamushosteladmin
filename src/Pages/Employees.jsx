@@ -1,4 +1,4 @@
-import { Button,TableContainer,Table, TableBody, TableCell, TableRow } from '@mui/material';
+import { Button,Input,TableContainer,Table, TableBody, TableCell, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { AiFillEdit } from 'react-icons/ai';
 import {  MdOutlineDeleteForever } from 'react-icons/md';
@@ -7,12 +7,17 @@ import EmployeeDataService from '../Operations';
 import { Navbar } from '../componets';
 
 const Employees = ({getEmployeeId}) => {
-
+  const [query, setQuery] = useState("")
   const [employees, setEmployees] = useState([]);
   useEffect(() => {
     getAllEmployees();
   }, []);
-  //get firebase function(getDocs) for all employee details
+  const keys =["firstname","Category"]
+  const search = (data) =>{
+    return data.filter(
+      (item) => 
+     keys.some(key=>item[key].toLowerCase().includes(query))
+  )}
   const getAllEmployees = async () => {
     const data = await EmployeeDataService.getAllEmployees();
     setEmployees(data.docs.map((doc) => ({ ...doc.data(),
@@ -22,8 +27,6 @@ const Employees = ({getEmployeeId}) => {
     await EmployeeDataService.deleteEmployee(id);
     getAllEmployees();
   };
-
-  
   return (
 <div className='md:px-10 mb-8'>
     <div className='pt-8 md:pl-8'>
@@ -42,10 +45,15 @@ const Employees = ({getEmployeeId}) => {
        
       </div>
     </div>
+    <div>
+      <Input type="search" placeholder='Search' className=''
+      // onChange={(e)=>setQuery(e.target.value)}
+      />
+    </div>
       <div className='overflow-x-auto md:pl-8'>
-      <Table>
+      <Table data={search}>
       <TableContainer className='rounded-2xl shadow-sm '>
-       <TableRow className='bg-[#D2DAFF] '>
+       <TableRow>
               <TableCell>SNO</TableCell>
               <TableCell>Full Name</TableCell>
               <TableCell>Contact</TableCell>

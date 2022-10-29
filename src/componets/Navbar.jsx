@@ -25,7 +25,7 @@ const Navbar = () => {
     <Menu>
       <MenuHandler>
         <IconButton>
-        <Avatar className='cursor-pointer text-xl'/>
+        <img src="https://t3.ftcdn.net/jpg/00/07/32/48/360_F_7324855_mx4CEBWTr81XLOrlQccCROtP2uNR7xbk.jpg" className='w-14 h-14 rounded-lg' alt="" />
         </IconButton>
         
       </MenuHandler>
