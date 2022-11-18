@@ -86,13 +86,13 @@ const Bookings = ({ getBookingId,getOccupantId }) => {
             <TableCell className='text-[red]'>
             <Link to='/BookingsAdd'>
             <Button variant="outlined"   onClick={(e) =>
-                   getBookingId(doc.id)}startIcon={<AiFillEdit className='text-[orange]' />}>
+                   getBookingId(doc.id)}startIcon={<AiFillEdit className='text-[orange]'/>}>
              Edit</Button>
             </Link>
             </TableCell>
             <TableCell className='text-[red]'>
             <Button variant="outlined"  onClick={(e) => 
-              deleteHandler(doc.id)}startIcon={<MdOutlineDeleteForever className='text-[red]' />}>
+              deleteHandler(doc.id)}startIcon={<MdOutlineDeleteForever className='text-[red]'/>}>
              Delete
             </Button>
             </TableCell>

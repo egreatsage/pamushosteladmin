@@ -38,7 +38,6 @@ class EmployeeDataService {
         });
       })
   }
-
   //Signup User
   register = async (newUser) => {
     await addDoc(usersCollectionRef, newUser)

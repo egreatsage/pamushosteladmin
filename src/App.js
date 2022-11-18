@@ -18,11 +18,14 @@ import RoomsAdd from './Pages/RoomsAdd';
 import UsersAdd from './Pages/UsersAdd';
 import { useState } from 'react';
 import Dashboard from './Pages/Dashboard';
+import { useUserAuth } from './contexts/UserAuthContext';
 
 function App() {
   const [employeeId, setEmployeeId] = useState('');
   const [bookingId, setBookingId] = useState('');
   const [occupantId, setOccupantId] = useState('');
+
+  const {user} = useUserAuth();
 
   const getEmployeeHandler = (id)=>{
     setEmployeeId(id);
@@ -35,13 +38,14 @@ function App() {
   }  
   return (
     <div>
+    
     <BrowserRouter>
     
           <div>
               <Navbar/>
             <Routes>
-              <Route path="/" element={<Login/>}/>
-              <Route path="/Dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
+                 {user ?  <div>
+                  <Route path="/Dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
               <Route path="/bookings" element={
               <ProtectedRoute><Bookings 
               getBookingId={getBookingIdHandler} /> 
@@ -76,6 +80,11 @@ function App() {
                 <BookingsAllocate id={bookingId} setBookingId={setBookingId}/>
               </ProtectedRoute>}/>
               <Route path="/sidebar" element={<ProtectedRoute><Sidebar/></ProtectedRoute>}/>
+
+                 </div> 
+              :
+              <Route path="/" element={<Login/>}/>}
+            
              
             </Routes>
             

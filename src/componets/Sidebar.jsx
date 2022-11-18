@@ -27,47 +27,46 @@ const Sidebar = () => {
       </div>
       <div className="offcanvas-body flex-grow p-6 items-center justify-center gap-9 overflow-y-auto">
           
-           <div className='mb-9 text-black '>
-           <Button   className=' font-bold gap-3 w-full text-black bg-gray-100 ext-black bg-transparent hover:text-white hover:bg-gray-600 text-md hover:ease-in-out rounded-md px-3 pl-4 flex '>
+           <div className='mb-9 flex gap-3 pl-8  px-3 rounded-md hover:bg-blue-gray-200 font-bold text-black '>
               <MdOutlineSpaceDashboard className='mt-1'/>
               <Link to='/Dashboard'>Dashboard</Link>
-           </Button>
+           
            </div>
-           <div className='mb-9 text-black '>
-           <Button   className=' font-bold gap-3 w-full text-black bg-transparent hover:text-white hover:bg-gray-600 text-md hover:ease-in-out rounded-md px-3 pl-4 flex '>
+           <div className='mb-9 flex gap-3 pl-8  px-3 rounded-md hover:bg-blue-gray-200 font-bold text-black '>
+          
               <TbBrandBooking  className='mt-1'/>
               <Link to='/bookings'>Bookings</Link>
-           </Button>
+
            </div>
-           <div className='mb-9 text-black '>
-           <Button   className=' font-bold gap-3 w-full text-black bg-transparent hover:text-white hover:bg-gray-600 text-md hover:ease-in-out rounded-md px-3 pl-4 flex '>
+           <div className='mb-9 flex gap-3 pl-8  px-3 rounded-md hover:bg-blue-gray-200 font-bold text-black '>
+          
               <MdPeopleOutline className='mt-1'/>
               <Link to='/occupants'>Occupants</Link>
-           </Button>
+
            </div>
-           <div className='mb-9 text-black '>
-           <Button   className=' font-bold gap-3 w-full text-black bg-transparent hover:text-white hover:bg-gray-600 text-md hover:ease-in-out rounded-md px-3 pl-4 flex '>
+           <div className='mb-9 flex gap-3 pl-8  px-3 rounded-md hover:bg-blue-gray-200 font-bold text-black '>
+          
               <IoIosPeople className='mt-1 '/>
               <Link to='/employees'>Employees</Link>
-           </Button>
+
            </div>
-           <div className='mb-9 text-black '>
-           <Button   className=' font-bold gap-3 w-full text-black bg-transparent hover:text-white hover:bg-gray-600 text-md hover:ease-in-out rounded-md px-3 pl-4 flex '>
+           <div className='mb-9 flex gap-3 pl-8  px-3 rounded-md hover:bg-blue-gray-200 font-bold text-black '>
+          
               <SiGooglemessages className='mt-1'/>
               <Link to='/messages'>Messages</Link>
-           </Button>
+
            </div>
-           <div className='mb-9 text-black '>
-           <Button   className=' font-bold gap-3 w-full text-black bg-transparent hover:text-white hover:bg-gray-600 text-md hover:ease-in-out rounded-md px-3 pl-4 flex '>
+           <div className='mb-9 flex gap-3 pl-8  px-3 rounded-md hover:bg-blue-gray-200 font-bold text-black '>
+          
               <FiUsers className='mt-1'/>
               <Link to='/users'>Users</Link>
-           </Button>
+
            </div>
-           <div className='mb-9 text-black '>
-           <Button   className=' font-bold gap-3 w-full text-black bg-transparent hover:text-white hover:bg-gray-600 text-md hover:ease-in-out rounded-md px-3 pl-4 flex '>
+           <div className='mb-9 flex gap-3 pl-8  px-3 rounded-md hover:bg-blue-gray-200 font-bold text-black '>
+          
               <MdOutlineBedroomChild className='mt-1'/>
               <Link to='/rooms'>Rooms</Link>
-           </Button>
+
            </div>
 
         

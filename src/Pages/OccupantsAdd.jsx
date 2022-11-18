@@ -28,7 +28,7 @@ const OccupantsAdd = ({ id, setOccupantId }) => {
     };
     try {
       if (id !== undefined && id !== "") {
-        await EmployeeDataService.updateEmployee(id, newOccupant);
+        await EmployeeDataService.updateOccupant(id, newOccupant);
         setOccupantId("");
         setmessage({ error: false, msg: "Updated successfully!" });
         setTimeout(() => {
@@ -59,7 +59,6 @@ const OccupantsAdd = ({ id, setOccupantId }) => {
       setmessage({ error: true, msg: err.message });
     }
   };
-
   useEffect(() => {
     if (id !== undefined && id !== "") {
       editHandler();

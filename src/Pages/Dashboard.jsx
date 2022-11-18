@@ -96,10 +96,7 @@ const Dashboard = () => {
      <div>
      </div>
           <div>
-          <div className="bg-gray-50 dark:text-gray-200
-        dark:bg-secondary-dark-bg h-[200px]
-        rounded-xl w-full lg:w-80 pt-9 p-8 m-3
-        bg-employer bg-no-repeat bg-cover flex bg-center">
+          <div>
       
           <Messages/>
         </div>
