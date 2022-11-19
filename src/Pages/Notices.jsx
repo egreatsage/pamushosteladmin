@@ -58,10 +58,10 @@ export default function Notices({getNoticeId}) {
              return(
     <Fragment>
       <Accordion className="w-full mb-4 overflow-auto" open={open === 1} icon={<Icon id={1} open={open} />}>
-     
               <div>
-          <AccordionHeader onClick={() => handleOpen(1)} className='flex font-semibold text-md justify between'>
-          <p>Creator: {doc.Creator} </p> <p>Date:{doc.TheDate}</p>   
+          <AccordionHeader onClick={() => handleOpen(1)} className='flex font-semibold text-md justify-between'>
+          <p><span className='text-black'>By:</span> {doc.Creator} </p>
+           <p><span className='text-black'>Date:</span>{doc.TheDate}</p>   
         </AccordionHeader>
         <AccordionBody className='mb-3'>
           {doc.Notice}
