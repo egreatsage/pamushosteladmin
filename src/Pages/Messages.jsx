@@ -45,7 +45,6 @@ const Messages = () => {
              return(
     <Fragment>
       <Accordion className="w-full mb-4 overflow-x-hidden" open={open === 1} icon={<Icon id={1} open={open} />}>
-     
               <div>
           <AccordionHeader onClick={() => handleOpen(1)} className='md:flex text-md font-semibold md:justify between'>
             <div> <p className=''>Name: {doc.fullname} </p></div>
