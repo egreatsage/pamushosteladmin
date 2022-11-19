@@ -1,4 +1,4 @@
-import {TableCell,TableRow,TableBody,Button, Table, Input} from '@mui/material'
+import {TableCell,TableRow,TableBody,Button,TableContainer, Table, Input} from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import EmployeeDataService from '../Operations';
@@ -37,25 +37,51 @@ const Occupants = ({ getOccupantId }) => {
     </div>
   
       <div className='overflow-x-auto'>
-      <Table className=' rounded-md'>
-       <thead>
-              <TableCell scope='col'>SNO</TableCell>
-              <TableCell scope='col'>FName</TableCell>
-              <TableCell scope='col'>SName</TableCell>
-              <TableCell scope='col'>Gender</TableCell>
-              <TableCell scope='col'>Age</TableCell>
-              <TableCell scope='col'>Contact</TableCell>
-              <TableCell scope='col'>RoomNo</TableCell>
-              <TableCell scope='col'>EntryDate</TableCell>
-              <TableCell scope='col'>ExitDate</TableCell>
-              <TableCell scope='col'>Edit</TableCell>
-              <TableCell scope='col'>Delete</TableCell>        
-       </thead>
-      
+      <Table>
+              <TableRow>
+              <TableCell>SN</TableCell>
+              <TableCell>FName</TableCell>
+              <TableCell>SName</TableCell>
+              <TableCell>Gender</TableCell>
+              <TableCell>Age</TableCell>
+              <TableCell>Contact</TableCell>
+              <TableCell>RoomNo</TableCell>
+              <TableCell>User Id</TableCell>
+              <TableCell>Exit Date</TableCell>
+              <TableCell>ExitDate</TableCell>
+              <TableCell>Edit</TableCell>
+              <TableCell>Delete</TableCell>        
+              </TableRow>
        <TableBody>
-     
-    
-         
+        {occupants.map((doc,index)=>{
+             return(
+       <TableRow>
+              <TableCell>{index+1}</TableCell>
+              <TableCell>{doc.FName}</TableCell>
+              <TableCell>{doc.LName}</TableCell>
+              <TableCell>{doc.Gender}</TableCell>
+              <TableCell>{doc.Age}</TableCell>
+              <TableCell>{doc.PNumber}</TableCell>
+              <TableCell>{doc.RoomNo}</TableCell>
+              <TableCell>{doc.userId}</TableCell>
+              <TableCell>{doc.EntryDate}</TableCell>
+              <TableCell>{doc.ExitDate}</TableCell>
+              <TableCell className='text-[red]'>
+            <Link to='/occupantadd'>
+            <Button    onClick={(e) =>
+                   getOccupantId(doc.id)}startIcon={<AiFillEdit className='text-[orange]'/>}>
+             <span className='text-[orange]'>Edit</span> </Button>
+            </Link>
+            </TableCell>  
+            <TableCell className=''>
+            <Button  onClick={(e) => 
+              deleteHandler(doc.id)}startIcon={<MdOutlineDeleteForever className='text-[red]'/>}>
+             <span className='text-[red]'>Delete</span>
+            </Button>
+            </TableCell>   
+              </TableRow>
+             )
+                 })}
        </TableBody>
       </Table>
       </div>

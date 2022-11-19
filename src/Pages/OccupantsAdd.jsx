@@ -14,8 +14,9 @@ const OccupantsAdd = ({ id, setOccupantId }) => {
   const [EntryDate, setEntryDate] = useState('');
   const [ExitDate, setExitDate] = useState('');
   const [message, setmessage] = useState({error: false, msg:''})
-  const navigate = useNavigate();
 
+  
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     setmessage("");

@@ -6,26 +6,20 @@ import { Link } from 'react-router-dom';
 import EmployeeDataService from '../Operations';
 import { Navbar } from '../componets';
 
-const Employees = ({getEmployeeId}) => {
+const Employees = ({getStaffId}) => {
   const [query, setQuery] = useState("")
-  const [employees, setEmployees] = useState([]);
+  const [staffs, setStaff] = useState([]);
   useEffect(() => {
-    getAllEmployees();
+    getAllStaff();
   }, []);
-  const keys =["firstname","Category"]
-  const search = (data) =>{
-    return data.filter(
-      (item) => 
-     keys.some(key=>item[key].toLowerCase().includes(query))
-  )}
-  const getAllEmployees = async () => {
-    const data = await EmployeeDataService.getAllEmployees();
-    setEmployees(data.docs.map((doc) => ({ ...doc.data(),
+  const getAllStaff = async () => {
+    const data = await EmployeeDataService.getAllStaff();
+    setStaff(data.docs.map((doc) => ({ ...doc.data(),
       id: doc.id })));
   };
   const deleteHandler = async (id) => {
-    await EmployeeDataService.deleteEmployee(id);
-    getAllEmployees();
+    await EmployeeDataService.deleteStaff(id);
+    getAllStaff();
   };
   return (
 <div className='md:px-10 mb-8'>
@@ -39,7 +33,7 @@ const Employees = ({getEmployeeId}) => {
        </Link>
       <div className="mb-2">
         <Button variant='outlined'  className='hover:bg-blue-600
-         hover:text-white' onClick={getAllEmployees}>
+         hover:text-white' onClick={getAllStaff}>
           Refresh List
         </Button>
        
@@ -51,13 +45,14 @@ const Employees = ({getEmployeeId}) => {
       />
     </div>
       <div className='overflow-x-auto md:pl-8'>
-      <Table data={search}>
+      <Table>
       <TableContainer className='rounded-2xl shadow-sm '>
        <TableRow>
               <TableCell>SNO</TableCell>
               <TableCell>Full Name</TableCell>
               <TableCell>Contact</TableCell>
               <TableCell>Work Category</TableCell>
+              <TableCell>UserId</TableCell>
               <TableCell>Salary</TableCell>
               <TableCell>Payment Date</TableCell>
               <TableCell>Amount Paid</TableCell>
@@ -65,26 +60,25 @@ const Employees = ({getEmployeeId}) => {
               <TableCell>Edit</TableCell>
               <TableCell>Delete</TableCell>        
        </TableRow>
-      
        <TableBody>
-       {employees.map((doc, index) => {
+       {staffs.map((doc, index) => {
         return(
           <TableRow key={doc.id}>
           <TableCell>{index + 1}</TableCell>
           <TableCell>  {doc.fullname}</TableCell>
-          <TableCell> {doc.Contact}</TableCell>
-          <TableCell> {doc.Category}</TableCell>
-          <TableCell> {doc.Salary}</TableCell>
+          <TableCell> {doc.phonenumber}</TableCell>
+          <TableCell> {doc.category}</TableCell>
+          <TableCell> {doc.userId}</TableCell>
+          <TableCell> {doc.salary}</TableCell>
           <TableCell> {doc.PaymentDate}</TableCell>
           <TableCell> {doc.Amount}</TableCell>
-          <TableCell>{doc.Balance}</TableCell>
+          <TableCell> {doc.Balance}</TableCell>
           <TableCell>
-                 <Link to='/EmployeeAdd'>
+                 <Link to='/employeeadd'>
                  <Button variant="outlined"   onClick={(e) =>
-                   getEmployeeId(doc.id)}startIcon={<AiFillEdit className='text-[orange]' />}>
+                   getStaffId(doc.id)}startIcon={<AiFillEdit className='text-[orange]' />}>
              Edit</Button>
-                 </Link>
-                       
+                 </Link>       
             </TableCell>
             <TableCell  data-label='delete' className='text-[red]'>
             <Button variant="outlined"  onClick={(e) => 
@@ -93,7 +87,6 @@ const Employees = ({getEmployeeId}) => {
             </Button>
             </TableCell>
       </TableRow> 
-          
         )
          })}
        </TableBody>

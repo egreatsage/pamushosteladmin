@@ -13,6 +13,7 @@ const BookingsAllocate = ({ id, setBookingId ,setOccupantId}) => {
   const [RoomNo, setRoomNo] = useState('');
   const [EntryDate, setEntryDate] = useState('');
   const [ExitDate, setExitDate] = useState('');
+  const [userId, setuserId] = useState('');
   const [message, setmessage] = useState({error: false, msg:''})
 
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const BookingsAllocate = ({ id, setBookingId ,setOccupantId}) => {
       return;
     }
     const newOccupant= {
-      FName,LName,Gender,Age,PNumber,RoomNo,EntryDate,ExitDate  
+      FName,LName,Gender,Age,PNumber,RoomNo,EntryDate,ExitDate,userId  
     };
     try {
         await EmployeeDataService.addOccupant(newOccupant);
@@ -37,36 +38,7 @@ const BookingsAllocate = ({ id, setBookingId ,setOccupantId}) => {
       setmessage({ error: true, msg: err.message });
     }  
   };
-  const handleSubmitt = async (e) => {
-    e.preventDefault();
-    setmessage("");
-    if (FName === "" || LName === "") {
-      setmessage({ error: true, msg: "All fields are mandatory!" });
-      return;
-    }
-    const newBooking = {
-     FName,LName,Gender,PNumber,Age,
-    
-    };
-    try {
-      if (id !== undefined && id !== "") {
-        await EmployeeDataService.updateBooking(id, newBooking);
-        setBookingId("");
-        setmessage({ error: false, msg: "Room Added Successfully" });
-      } else {
-        await EmployeeDataService.addBooking(newBooking);
-        setmessage({ error: false, msg: "New Details added successfully!" });
-        navigate('/Occupants')
-      }
-    } catch (err) {
-      setmessage({ error: true, msg: err.message });
-    }
-
-    setFName(""); setLName("");setGender("");setPNumber("");
-    setAge("");
-    
-    
-  };
+ 
   
 
   const editHandler = async () => {
@@ -78,8 +50,7 @@ const BookingsAllocate = ({ id, setBookingId ,setOccupantId}) => {
       setGender(docSnap.data().Gender);
       setPNumber(docSnap.data().PNumber);
       setAge(docSnap.data().Age);
-     
-
+      setuserId(docSnap.data().userId);
     } catch (err) {
       setmessage({ error: true, msg: err.message });
     }
@@ -181,6 +152,14 @@ const BookingsAllocate = ({ id, setBookingId ,setOccupantId}) => {
              sm:text-sm border-gray-300 rounded-md"
              value={ExitDate} 
              onChange={(e)=>setExitDate(e.target.value)}
+             />
+          </div>
+          <div className="col-span-6 sm:col-span-6 lg:col-span-2">
+            <Input  label="User Id" type="text"  className="mt-1
+             focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm 
+             sm:text-sm border-gray-300 rounded-md"
+             value={userId} 
+             onChange={(e)=>setuserId(e.target.value)}
              />
           </div>
           <div className='p-3 mb-8'><Button  className='hover:bg-teal-900'type='submit'

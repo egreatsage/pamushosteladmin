@@ -11,11 +11,11 @@ import {
 } from "firebase/firestore";
 
 const usersCollectionRef = collection(db, "Users");
-const employeeCollectionRef = collection(db, "Employees");
+const staffCollectionRef = collection(db, "Staff");
 const occupantCollectionRef = collection(db, "Occupants");
 const bookingCollectionRef = collection(db, "Bookings");
 const messagesCollectionRef = collection(db, "Messages");
-
+const noticesCollectionRef = collection(db, "Notices");
 class EmployeeDataService {
   //login User 
   login = async (email, password) => {
@@ -42,15 +42,12 @@ class EmployeeDataService {
   register = async (newUser) => {
     await addDoc(usersCollectionRef, newUser)
   }
-  
-//logout
-  logout = () => {
-    localStorage.removeItem("user");
-  }
-
-  //Employees
-  addEmployee = (newEmployee) => {
-    return addDoc(employeeCollectionRef, newEmployee);
+  //Staff
+  addStaff = (newStaff) => {
+    return addDoc(staffCollectionRef, newStaff);
+  };
+  addNotice = (newNotice) => {
+    return addDoc(noticesCollectionRef, newNotice);
   };
   //Occupants
   addOccupant = (newOccupant) => {
@@ -65,9 +62,13 @@ class EmployeeDataService {
     return addDoc(messagesCollectionRef, newMessage);
   };
   //Employees
-  updateEmployee = (id, updatedEmployee) => {
-    const employeeDoc = doc(db, "Employees", id);
-    return updateDoc(employeeDoc, updatedEmployee);
+  updateStaff = (id, updatedStaff) => {
+    const staffDoc = doc(db, "Staff", id);
+    return updateDoc(staffDoc, updatedStaff);
+  };
+  updateNotice = (id, updatedNotice) => {
+    const noticeDoc = doc(db, "Notices", id);
+    return updateDoc(noticeDoc, updatedNotice);
   };
   //Occupants
   updateOccupant = (id, updatedOccupant) => {
@@ -80,9 +81,13 @@ class EmployeeDataService {
     return updateDoc(bookingDoc, updatedBooking);
   };
   //Employee
-  deleteEmployee = (id) => {
-    const employeeDoc = doc(db, "Employees", id);
-    return deleteDoc(employeeDoc);
+  deleteStaff = (id) => {
+    const staffDoc = doc(db, "Staff", id);
+    return deleteDoc(staffDoc);
+  };
+  deleteNotice = (id) => {
+    const noticeDoc = doc(db, "Notices", id);
+    return deleteDoc(noticeDoc);
   };
   // Occupants
   deleteOccupant = (id) => {
@@ -100,8 +105,11 @@ class EmployeeDataService {
     return deleteDoc(messageDoc);
   };
   // Employees
-  getAllEmployees = () => {
-    return getDocs(employeeCollectionRef);
+  getAllStaff = () => {
+    return getDocs(staffCollectionRef);
+  };
+  getAllNotices = () => {
+    return getDocs(noticesCollectionRef);
   };
   // Occupants
   getAllOccupants = () => {
@@ -116,9 +124,13 @@ class EmployeeDataService {
     return getDocs(bookingCollectionRef);
   };
   //Employees
-  getEmployee = (id) => {
-    const employeeDoc = doc(db, "Employees", id);
-    return getDoc(employeeDoc);
+  getStaff = (id) => {
+    const staffDoc = doc(db, "Staff", id);
+    return getDoc(staffDoc);
+  };
+  getNotice = (id) => {
+    const noticeDoc = doc(db, "Notices", id);
+    return getDoc(noticeDoc);
   };
   //Messages
   getMessage= (id) => {

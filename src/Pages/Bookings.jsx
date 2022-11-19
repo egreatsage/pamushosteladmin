@@ -38,9 +38,9 @@ const Bookings = ({ getBookingId,getOccupantId }) => {
             <div className='overflow-x-auto md:p-8 mt-5 '>
       
         <Table >
-        <TableContainer className=' rounded-2xl shadow-sm '>
+        <TableContainer className='shadow-lg'>
         <TableHead >
-          <TableRow className='bg-[#D2DAFF] '>
+          <TableRow className='text-3xl font-bold'>
           <TableCell> SNO</TableCell>
             <TableCell> FName</TableCell>
             <TableCell> LName</TableCell>
@@ -49,14 +49,14 @@ const Bookings = ({ getBookingId,getOccupantId }) => {
             <TableCell> Number</TableCell>
             <TableCell> Homecounty</TableCell>
             <TableCell> H.Category</TableCell>
-            <TableCell>  P/GName</TableCell>
+            <TableCell> P/GName</TableCell>
             <TableCell> P/GContact</TableCell>
             <TableCell> EName</TableCell>
             <TableCell> ENumber</TableCell>
             <TableCell> Relation</TableCell>
             <TableCell> Institution</TableCell>
             <TableCell> YearOfStudy</TableCell>
-            <TableCell> ODocument</TableCell>
+            <TableCell> UserId</TableCell>
             <TableCell> Edit</TableCell>
             <TableCell> Delete</TableCell>
             <TableCell> Room</TableCell>
@@ -72,7 +72,7 @@ const Bookings = ({ getBookingId,getOccupantId }) => {
             <TableCell>{doc.Gender}</TableCell>
             <TableCell>{doc.Age}</TableCell>
             <TableCell>{doc.PNumber}</TableCell>
-            <TableCell>{doc.HomeCounty}</TableCell>
+            <TableCell>{doc.Homecounty}</TableCell>
             <TableCell>{doc.Category}</TableCell>
             <TableCell>{doc.PGName}</TableCell>
             <TableCell>{doc.PGContact}</TableCell>
@@ -81,8 +81,7 @@ const Bookings = ({ getBookingId,getOccupantId }) => {
             <TableCell>{doc.Relation}</TableCell>
             <TableCell>{doc.Institution}</TableCell>
             <TableCell>{doc.YearOfStudy}</TableCell>
-            <TableCell>doc</TableCell>
-            
+            <TableCell>{doc.userId}</TableCell>
             <TableCell className='text-[red]'>
             <Link to='/BookingsAdd'>
             <Button variant="outlined"   onClick={(e) =>

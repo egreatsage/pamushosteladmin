@@ -19,19 +19,25 @@ import UsersAdd from './Pages/UsersAdd';
 import { useState } from 'react';
 import Dashboard from './Pages/Dashboard';
 import { useUserAuth } from './contexts/UserAuthContext';
+import Notices from './Pages/Notices';
+import NoticeAdd from './Pages/NoticeAdd';
 
 function App() {
-  const [employeeId, setEmployeeId] = useState('');
+  const [staffId, setStaffId] = useState('');
   const [bookingId, setBookingId] = useState('');
   const [occupantId, setOccupantId] = useState('');
+  const [noticeId, setNoticeId] = useState('');
 
   const {user} = useUserAuth();
 
-  const getEmployeeHandler = (id)=>{
-    setEmployeeId(id);
+  const getStaffHandler = (id)=>{
+    setStaffId(id);
   }
   const getOccupantHandler = (id)=>{
     setOccupantId(id);
+  }
+  const getNoticeHandler = (id)=>{
+    setNoticeId(id);
   }
   const getBookingIdHandler=(id) =>{
     setBookingId(id);
@@ -40,12 +46,10 @@ function App() {
     <div>
     
     <BrowserRouter>
-    
-          <div>
               <Navbar/>
             <Routes>
-                 {user ?  <div>
-                  <Route path="/Dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
+               
+                  <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
               <Route path="/bookings" element={
               <ProtectedRoute><Bookings 
               getBookingId={getBookingIdHandler} /> 
@@ -53,10 +57,19 @@ function App() {
               <Route path="/messages" element={<ProtectedRoute><Messages/> </ProtectedRoute>}/>
               <Route path="/employees" element={
               <ProtectedRoute>
-                <Employees getEmployeeId={getEmployeeHandler}/> 
+                <Employees getStaffId={getStaffHandler}/> 
                 </ProtectedRoute>
               }/>
               <Route path="/rooms" element={<ProtectedRoute><Rooms/></ProtectedRoute>}/>
+              
+              <Route path="/notice" element={<ProtectedRoute>
+                <Notices getNoticeId={getNoticeHandler}/>
+                </ProtectedRoute>}/>
+
+              <Route path="/noticeadd" element={<ProtectedRoute>
+                <NoticeAdd id={noticeId} setNoticeId={setNoticeId}/>
+                </ProtectedRoute>}/>
+              
               <Route path="/users" element={<ProtectedRoute><Users/></ProtectedRoute>}/>
               <Route path="/occupants" element={<ProtectedRoute>
                 <Occupants  getOccupantId={getOccupantHandler}/>
@@ -67,11 +80,11 @@ function App() {
                  </ProtectedRoute>}/>
               <Route path="/employeeadd" element={
               <ProtectedRoute>
-                <EmployeeAdd id={employeeId} setEmployeeId={setEmployeeId}/>
+                <EmployeeAdd id={staffId} setStaffId={setStaffId}/>
                 </ProtectedRoute>
               }/>
               <Route path="/occupantadd" element={<ProtectedRoute>
-                <OccupantsAdd id={occupantId} setBookingId={setOccupantId}/>
+                <OccupantsAdd id={occupantId} setOccupantId={setOccupantId}/>
                 </ProtectedRoute>}/>
               <Route path="/roomsadd" element={<ProtectedRoute><RoomsAdd/></ProtectedRoute>}/>
               <Route path="/usersadd" element={<ProtectedRoute><UsersAdd/></ProtectedRoute>}/>
@@ -80,16 +93,8 @@ function App() {
                 <BookingsAllocate id={bookingId} setBookingId={setBookingId}/>
               </ProtectedRoute>}/>
               <Route path="/sidebar" element={<ProtectedRoute><Sidebar/></ProtectedRoute>}/>
-
-                 </div> 
-              :
-              <Route path="/" element={<Login/>}/>}
-            
-             
+              <Route path="/" element={<Login/>}/>           
             </Routes>
-            
-          </div>
-     
     </BrowserRouter>
     </div>
   );

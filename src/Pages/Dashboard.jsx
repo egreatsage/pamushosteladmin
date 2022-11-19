@@ -2,7 +2,8 @@ import React from 'react'
 import { MdOutlinePeopleAlt, MdOutlineRoomService,MdPeopleOutline } from 'react-icons/md';
 import {Link} from 'react-router-dom';
 import Messages from './Messages'
-import { Button} from '@mui/material';
+import { Button} from '@material-tailwind/react';
+import Notices from './Notices';
 const Dashboard = () => {
 
    
@@ -19,7 +20,7 @@ const Dashboard = () => {
         bg-hostellar bg-no-repeat bg-cover bg-center">
           <div className="flex justify-between items-center
           ">
-             <div className="text-[#0080ff] text-8xl ">
+             <div className="text-gray-800 text-8xl ">
         <MdOutlinePeopleAlt/>
         </div>
             <div>
@@ -30,7 +31,7 @@ const Dashboard = () => {
               176
              </p>
              <div>
-             <Link to='/Occupants'> <Button variant='outlined'>View Details</Button></Link>
+             <Link to='/Occupants'><Button className='py-2 px-2 bg-gray-700 text-white'>View Details</Button></Link>
         </div>
             </div>
             <div className="mt-6">
@@ -42,7 +43,7 @@ const Dashboard = () => {
         dark:bg-secondary-dark-bg h-44
         rounded-xl w-full lg:w-80 pt-9 p-8 m-3
         bg-room bg-no-repeat bg-cover bg-center flex ">
-           <div className="text-[#0080ff] text-8xl ">
+           <div className="text-gray-800 text-8xl ">
         <MdOutlineRoomService/>
         </div>
           <div className="flex justify-between items-center pl-3
@@ -55,7 +56,7 @@ const Dashboard = () => {
               72
              </p>
              <div>
-        <Link to='/Rooms'> <Button variant='outlined'>View Details</Button></Link>
+        <Link to='/Rooms'>  <Button className='py-2 px-2 bg-gray-700 text-white'>View Details</Button></Link>
         </div>
             </div>
             <div className="mt-6">
@@ -67,7 +68,7 @@ const Dashboard = () => {
         dark:bg-secondary-dark-bg h-44
         rounded-xl w-full lg:w-80 pt-9 p-8 m-3
         bg-employer bg-no-repeat bg-cover flex bg-center">
-         <div className="text-[#0080ff] font-semibold text-8xl ">
+         <div className="text-gray-800 font-semibold text-8xl ">
         <MdPeopleOutline/>
         </div>
           <div className="flex justify-between items-center pl-3
@@ -80,7 +81,7 @@ const Dashboard = () => {
               10
              </p>
              <div>
-        <Link to='/Employees'><Button variant='outlined'>View Details</Button></Link>
+        <Link to='/Employees'>  <Button className='py-2 px-2 bg-gray-700 text-white'>View Details</Button></Link>
         </div>
             </div>
             <div className="mt-6">
@@ -96,16 +97,17 @@ const Dashboard = () => {
      <div>
      </div>
           <div>
-          <div>
-      
-          <Messages/>
-        </div>
+          <div className='grid gap-5  md:grid-cols-2 overflow-auto'>
+             <div className='bg-white rounded-md shadow-lg border border-gray-300 md:px-5'>
+             <Messages/>
+             </div>
+             <div className=' pl-4 text-center bg-white rounded-md shadow-lg border border-gray-300'>
+                     <p>Notices</p>
+                        <Notices/>
+                     </div>      
+                </div>
           </div>
-  
      </div>
-    
-     
-   
   )
 }
 
