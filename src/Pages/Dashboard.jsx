@@ -14,6 +14,31 @@ const Dashboard = () => {
         <div className="mt-12 ">
       <div className="flex flex-wrap lg:flex-nowrap
        justify-center">
+         <div className="bg-gray-50 dark:text-gray-200
+        dark:bg-secondary-dark-bg h-44
+        rounded-xl w-full lg:w-80 pt-9 p-8 m-3
+        bg-hostellar bg-no-repeat bg-cover bg-center">
+          <div className="flex justify-between items-center
+          ">
+             <div className="text-gray-800 text-8xl ">
+        <MdOutlinePeopleAlt/>
+        </div>
+            <div>
+            <p className="font-extrabold text-gray-800 dark:text-blue-gray-700">
+            Bookings
+             </p>
+             <p className="text-2xl">
+              176
+             </p>
+             <div>
+             <Link to='/bookings'><Button className='py-2 px-2 bg-gray-700 text-white'>View Details</Button></Link>
+        </div>
+            </div>
+            <div className="mt-6">
+            
+          </div>
+          </div>
+        </div>
         <div className="bg-gray-50 dark:text-gray-200
         dark:bg-secondary-dark-bg h-44
         rounded-xl w-full lg:w-80 pt-9 p-8 m-3
@@ -42,37 +67,37 @@ const Dashboard = () => {
         <div className="bg-gray-50 dark:text-gray-200
         dark:bg-secondary-dark-bg h-44
         rounded-xl w-full lg:w-80 pt-9 p-8 m-3
-        bg-room bg-no-repeat bg-cover bg-center flex ">
-           <div className="text-gray-800 text-8xl ">
-        <MdOutlineRoomService/>
-        </div>
-          <div className="flex justify-between items-center pl-3
+        bg-hostellar bg-no-repeat bg-cover bg-center">
+          <div className="flex justify-between items-center
           ">
+             <div className="text-gray-800 text-8xl ">
+             <MdOutlineRoomService/>
+        </div>
             <div>
             <p className="font-extrabold text-gray-800 dark:text-blue-gray-700">
               Rooms
              </p>
              <p className="text-2xl">
-              72
+              40
              </p>
              <div>
-        <Link to='/Rooms'>  <Button className='py-2 px-2 bg-gray-700 text-white'>View Details</Button></Link>
+             <Link to='/rooms'><Button className='py-2 px-2 bg-gray-700 text-white'>View Details</Button></Link>
         </div>
             </div>
             <div className="mt-6">
+            
           </div>
           </div>
         </div>
-        
         <div className="bg-gray-50 dark:text-gray-200
         dark:bg-secondary-dark-bg h-44
         rounded-xl w-full lg:w-80 pt-9 p-8 m-3
-        bg-employer bg-no-repeat bg-cover flex bg-center">
-         <div className="text-gray-800 font-semibold text-8xl ">
-        <MdPeopleOutline/>
-        </div>
-          <div className="flex justify-between items-center pl-3
+        bg-hostellar bg-no-repeat bg-cover bg-center">
+          <div className="flex justify-between items-center
           ">
+             <div className="text-gray-800 text-8xl ">
+             <MdPeopleOutline/>
+        </div>
             <div>
             <p className="font-extrabold text-gray-800 dark:text-blue-gray-700">
               Employees
@@ -81,10 +106,11 @@ const Dashboard = () => {
               10
              </p>
              <div>
-        <Link to='/Employees'>  <Button className='py-2 px-2 bg-gray-700 text-white'>View Details</Button></Link>
+             <Link to='/employees'><Button className='py-2 px-2 bg-gray-700 text-white'>View Details</Button></Link>
         </div>
             </div>
             <div className="mt-6">
+            
           </div>
           </div>
         </div>
@@ -102,7 +128,7 @@ const Dashboard = () => {
              <Messages/>
              </div>
              <div className=' pl-4 text-center bg-white rounded-md shadow-lg border border-gray-300'>
-                     <p>Notices</p>
+                     <p className='text-2xl md:text-3xl font-bold pt-4 leading-tight'>Notices</p>
                         <Notices/>
                      </div>      
                 </div>

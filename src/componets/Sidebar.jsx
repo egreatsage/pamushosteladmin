@@ -27,23 +27,23 @@ const Sidebar = () => {
       </div>
       <div className="offcanvas-body flex-grow p-6 items-center justify-center gap-9 overflow-y-auto">
           
-           <Link to='/Dashboard'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-blue-gray-200 font-bold text-black '>
+           <Link to='/Dashboard'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
               <MdOutlineSpaceDashboard className='mt-1'/>
               Dashboard
            </div></Link>
-           <Link to='/bookings'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-blue-gray-200 font-bold text-black '>
+           <Link to='/bookings'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
               <TbBrandBooking  className='mt-1'/>
               Bookings </div></Link>
-           <Link to='/occupants'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-blue-gray-200 font-bold text-black '>
+           <Link to='/occupants'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
               <MdPeopleOutline className='mt-1'/>Occupants</div></Link>
               
-            <Link to='/employees'> <div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-blue-gray-200 font-bold text-black '>
+            <Link to='/employees'> <div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
               <IoIosPeople className='mt-1 '/> Employees </div></Link>
-           <Link to='/messages'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-blue-gray-200 font-bold text-black '>
+           <Link to='/messages'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
               <SiGooglemessages className='mt-1'/> Messages</div></Link>
-              <Link to='/users'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-blue-gray-200 font-bold text-black '>
+              <Link to='/users'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
               <FiUsers className='mt-1'/>Users</div></Link>
-            <Link to='/rooms'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-blue-gray-200 font-bold text-black '>
+            <Link to='/rooms'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
               <MdOutlineBedroomChild className='mt-1'/> Rooms</div></Link>
       </div>
     </div>

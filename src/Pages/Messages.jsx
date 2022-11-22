@@ -39,29 +39,29 @@ const Messages = () => {
   
   
   return (
-    <div className='mx-5 px-5 md:mx-0 md:px-0'>
-                 <h1 className='text-center '> Messages And Notifications</h1>
+    <div className='mx-5 px-5 md:mx-0 md:px-0 pb-4'>
+                 <h1 className='text-center text-2xl md:text-3xl font-bold pt-4 leading-tight '> Messages And Notifications</h1>
    {messages.map((doc,index)=>{
              return(
     <Fragment>
       <Accordion className="w-full mb-4 overflow-x-hidden" open={open === 1} icon={<Icon id={1} open={open} />}>
               <div>
-          <AccordionHeader onClick={() => handleOpen(1)} className='md:flex text-md font-semibold md:justify between'>
-            <div> <p className=''> <span className='text-black'>Name:</span> {doc.fullname} </p></div>
-            <div><p ><span className='text-black'>Email/Phone:</span>{doc.email}</p> </div>
+          <AccordionHeader onClick={() => handleOpen(1)} className='md:flex text-md font-semibold md:justify-between'>
+            <div><p className=''> <span className='text-black'>Name:</span> {doc.fullname}</p></div>
+            <div><p ><span className='text-black'>Email/Phone:</span>{doc.email}</p></div>
         </AccordionHeader>
         <AccordionBody className='mb-3'>
           {doc.message}
          <div className="flex justify-between">
            <div></div>
          <Button onClick={(e) =>  deleteHandler(doc.id)}
-             className='py-2  mt-2 bg-gray-700 text-white'>Delete Message
+             className='py-2 mt-2 bg-gray-700 text-white'>Delete Message
          </Button>
          </div>
         </AccordionBody>
           </div>
       </Accordion>
-      <Divider/>
+      <Divider className=''/>
     <Divider/>
     </Fragment>
     )
