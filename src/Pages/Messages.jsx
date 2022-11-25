@@ -39,35 +39,37 @@ const Messages = () => {
   
   
   return (
-    <div className='mx-5 px-5 md:mx-0 md:px-0 pb-4'>
-                 <h1 className='text-center text-2xl md:text-3xl font-bold pt-4 leading-tight '> Messages And Notifications</h1>
-   {messages.map((doc,index)=>{
-             return(
-    <Fragment>
-      <Accordion className="w-full mb-4 overflow-x-hidden" open={open === 1} icon={<Icon id={1} open={open} />}>
+   
               <div>
-          <AccordionHeader onClick={() => handleOpen(1)} className='md:flex text-md font-semibold md:justify-between'>
-            <div><p className=''> <span className='text-black'>Name:</span> {doc.fullname}</p></div>
-            <div><p ><span className='text-black'>Email/Phone:</span>{doc.email}</p></div>
-        </AccordionHeader>
-        <AccordionBody className='mb-3'>
-          {doc.message}
-         <div className="flex justify-between">
-           <div></div>
-         <Button onClick={(e) =>  deleteHandler(doc.id)}
-             className='py-2 mt-2 bg-gray-700 text-white'>Delete Message
-         </Button>
+                  {messages.map((doc,index)=>{
+return(
+  <div className=' shadow-lg w-full px-2 my-4'>
+         <p className='text-center leading-tight font-bold text-xl'>Notifications</p>
+         <div className='flex justify-between'>
+          <div className=''>
+         
+             <div className=''>
+              <p><span className='font-bold'>Name: </span> {doc.fullname}</p>
+             </div>
+             <div className=''>
+              <p><span className='font-bold'>Email:</span>{doc.email}</p>
+             </div>
+         </div>           
          </div>
-        </AccordionBody>
-          </div>
-      </Accordion>
-      <Divider className=''/>
-    <Divider/>
-    </Fragment>
-    )
-  })}
-   </div>
-  
+         <div className='pt-4 mb-2'>
+             <Divider/>
+             <p className='text-gray-700 pb-3'>{doc.message}</p>
+             <Divider/>
+             <Divider/>
+             <Divider/>
+             <Divider className='pb-3'/>
+         </div>
+</div>
+)
+})}
+
+              </div>
+        
      
   )
 }

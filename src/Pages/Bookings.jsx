@@ -24,15 +24,14 @@ const Bookings = ({ getBookingId,getOccupantId }) => {
       <div className='pt-8'>
                  <p className='font-bold mb-3 text-xl  pb-2  text-center'> Booking Details</p>
                  <div className=" md:pl-9 flex gap-6">
-      <Link to='/BookingsAdd'><Button 
-      className='hover:bg-blue-600 hover:text-[rgb(35,165,0)]'
-       variant='outlined'>Add Booking</Button></Link>
+      <Link to='/BookingsAdd'><button 
+      className='text-white bg-gray-700 px-2 py-2 rounded-md hover:shadow-lg'>Add Booking</button></Link>
       <div className="mb-2">
-        <Button variant='outlined' 
-         className='hover:bg-blue-600 hover:text-[rgb(35,165,0)]'
+        <button variant='outlined' 
+         className='text-white bg-gray-700 px-2 py-2 rounded-md hover:shadow-lg'
           onClick={getAllBookings}>
           Refresh List
-        </Button>
+        </button>
       </div>
     </div>
             <div className='overflow-x-auto md:p-8 mt-5 '>

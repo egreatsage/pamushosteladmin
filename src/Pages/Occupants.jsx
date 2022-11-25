@@ -23,16 +23,13 @@ const Occupants = ({ getOccupantId }) => {
     <div className='px-2 md:px-8'> 
      <p className='text-xl text-gray-600 pt-8 text-center'>Occupants Details</p>
     <div className="mt-6 flex gap-6">
-      <Link to='/Occupantadd'><Button 
-      className='hover:bg-blue-600
-       hover:text-white' variant='outlined'>Add  Occupant</Button>
+      <Link to='/Occupantadd'><button 
+      className='text-white bg-gray-700 px-2 py-2 rounded-md hover:shadow-lg' variant='outlined'>Add  Occupant</button>
        </Link>
       <div className="mb-2">
-        <Button variant='outlined'  className='hover:bg-blue-600
-         hover:text-white' onClick={getAllOccupants}>
+        <button className='text-white bg-gray-700 px-2 py-2 rounded-md hover:shadow-lg' onClick={getAllOccupants}>
           Refresh List
-        </Button>
-       
+        </button>
       </div>
     </div>
   

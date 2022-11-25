@@ -50,42 +50,33 @@ export default function Notices({getNoticeId}) {
     setOpen(open === value ? 0 : value);
   };
   return (
-    <div className="pl-4 border-indigo-900">
-        <div className="justify-end pr-2 flex"><Link to='/noticeadd'>
-          <Button className='py-2 px-2 bg-gray-700 text-white'>Add A Notice</Button></Link>
-          </div>
-          {notices.map((doc,index)=>{
-             return(
-    <Fragment>
-      <Accordion className="w-full mb-4 overflow-auto" open={open === 1} icon={<Icon id={1} open={open} />}>
-              <div>
-          <AccordionHeader onClick={() => handleOpen(1)} className='flex font-semibold text-md justify-between'>
-          <p><span className='text-black'>By:</span> {doc.Creator} </p>
-           <p><span className='text-black'>Date:</span>{doc.TheDate}</p>   
-        </AccordionHeader>
-        <AccordionBody className='mb-3'>
-          {doc.Notice}
-         <div className="flex justify-between">
-         <Link to='/noticeadd'><Button onClick={(e) =>  getNoticeId(doc.id)}  
-             className='py-2  mt-2 bg-gray-700 text-white'>Edit Notice
-         </Button></Link>
-         <Button onClick={(e) =>  deleteHandler(doc.id)}
-             className='py-2  mt-2 bg-gray-700 text-white'>Delete Notice
-         </Button>
-         </div>
-        </AccordionBody>
-          </div>
-      </Accordion>
-      <Divider/>
-    <Divider/>
-    </Fragment>
-    )
-  })}
-   
     <div>
-   
-    </div>
-    </div>
+    {notices.map((doc,index)=>{
+return(
+<div className=' shadow-lg w-full rounded-md py-3 px-2 my-4'>
+
+
+<div className='flex justify-between'>
+<div className=' '>
+<p><span className='font-bold'>By: </span> {doc.Creator}</p>
+</div>
+<div className=''>
+<p><span className='font-bold'>Email:</span>{doc.TheDate}</p>
+</div>
+</div>           
+<div className='pt-4 mb-2'>
+<Divider/>
+<p className='text-gray-700 pb-3'>{doc.Notice}</p>
+<Divider/>
+<Divider/>
+<Divider/>
+<Divider className='pb-3'/>
+</div>
+</div>
+)
+})}
+
+</div>
    
   );
 }

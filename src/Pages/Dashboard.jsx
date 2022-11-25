@@ -124,7 +124,7 @@ const Dashboard = () => {
      </div>
           <div>
           <div className='grid gap-5  md:grid-cols-2 overflow-auto'>
-             <div className='bg-white rounded-md shadow-lg border border-gray-300 md:px-5'>
+             <div className='bg-white rounded-md shadow-lg border border-gray-300 md:px-2'>
              <Messages/>
              </div>
              <div className=' pl-4 text-center bg-white rounded-md shadow-lg border border-gray-300'>
