@@ -21,31 +21,40 @@ const Employees = ({getStaffId}) => {
     await EmployeeDataService.deleteStaff(id);
     getAllStaff();
   };
+  const [search, setSearch] = useState('');
+
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
+  const data = {
+    getAllStaff: staffs.filter((doc) =>
+      doc.fullname.includes(search)
+    ),
+  };
   return (
 <div className='md:px-10 mb-8'>
     <div className='pt-8 md:pl-8'>
-    <p className='text-xl text-gray-600 text-center'>Employee Details</p>
+    <p className='text-xl text-gray-600 text-center'>Staff Details</p>
             <div className='overflow-x-auto md:p-8 mt-8 '>
     <div className=" md:pl-8 flex gap-6">
-      <Link to='/employeeadd'><Button 
-      className='hover:bg-blue-600
-       hover:text-white' variant='outlined'>Add Employee</Button>
+      <Link to='/employeeadd'><button 
+      className='text-white bg-gray-700 px-2 py-2 rounded-md hover:shadow-lg'>Add Employee</button>
        </Link>
       <div className="mb-2">
-        <Button variant='outlined'  className='hover:bg-blue-600
-         hover:text-white' onClick={getAllStaff}>
+        <button v className='text-white bg-gray-700 px-2 py-2 rounded-md hover:shadow-lg' onClick={getAllStaff}>
           Refresh List
-        </Button>
+        </button>
        
       </div>
     </div>
     <div>
-      <Input type="search" placeholder='Search' className=''
-      // onChange={(e)=>setQuery(e.target.value)}
-      />
+    <label htmlFor="search">
+        Search by Task:
+        <input id="search" type="text" onChange={handleSearch} />
+      </label>
     </div>
       <div className='overflow-x-auto md:pl-8'>
-      <Table>
+      <Table data={data} >
       <TableContainer className='rounded-2xl shadow-sm '>
        <TableRow>
               <TableCell>SNO</TableCell>
@@ -60,12 +69,12 @@ const Employees = ({getStaffId}) => {
               <TableCell>Edit</TableCell>
               <TableCell>Delete</TableCell>        
        </TableRow>
-       <TableBody>
+       <TableBody >
        {staffs.map((doc, index) => {
         return(
           <TableRow key={doc.id}>
-          <TableCell>{index + 1}</TableCell>
-          <TableCell>  {doc.fullname}</TableCell>
+          <TableCell> {index + 1}</TableCell>
+          <TableCell> {doc.fullname}</TableCell>
           <TableCell> {doc.phonenumber}</TableCell>
           <TableCell> {doc.category}</TableCell>
           <TableCell> {doc.userId}</TableCell>

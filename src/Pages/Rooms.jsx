@@ -1,11 +1,8 @@
 import React from 'react'
-import { Navbar } from '../componets'
 
-function Rooms() {
+const Rooms = () => {
   return (
-    <div>  
-      Rooms 
-    </div>
+    <div>Rooms</div>
   )
 }
 
