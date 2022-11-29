@@ -23,6 +23,7 @@ import Notices from './Pages/Notices';
 import NoticeAdd from './Pages/NoticeAdd';
 import { Tooltip } from '@mui/material';
 import { FiSettings } from 'react-icons/fi';
+import  Reminders  from './Pages/Reminders';
 
 function App() {
   const [staffId, setStaffId] = useState('');
@@ -132,6 +133,7 @@ function App() {
                 <BookingsAllocate id={bookingId} setBookingId={setBookingId}/>
               </ProtectedRoute>}/>
               <Route path="/sidebar" element={<ProtectedRoute><Sidebar/></ProtectedRoute>}/>
+              <Route path="/reminders" element={<ProtectedRoute><Reminders/></ProtectedRoute>}/>
               <Route path="/login" element={<Login/>}/>           
             </Routes>
         

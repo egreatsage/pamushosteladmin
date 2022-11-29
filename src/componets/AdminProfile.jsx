@@ -64,6 +64,9 @@ const AdminProfile = () => {
       </MenuHandler>
      
       <MenuList>
+        <div className='flex justify-center'>
+        <img src={photoURL} alt="Photo" className='md:h-16 md:w-16 w-12 h-12  object-fit-cover rounded-full'/>
+        </div>
            <h1 className='text-center font-bold my-3 text-black'>Account Details</h1>
            <p>UserName</p>
         <MenuItem className='mb-3 text-black'>{user && user.displayName}</MenuItem>

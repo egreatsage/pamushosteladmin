@@ -65,7 +65,9 @@ const NoticeAdd = ({id, setNoticeId}) => {
    {''}
    {message?.msg}
  </Alert>
-)}       <div className="text-center">Add A Notice</div>
+)}     
+
+  <div className="text-center">Add A Notice</div>
          <p className="italic text-sm text-red-300 text-center">students will be able to view these noties in their portal</p>
              <form onSubmit={handleSubmit} className='' >
                 <div className='mx-3 my-3 mb-4'>

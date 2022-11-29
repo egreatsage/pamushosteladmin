@@ -36,6 +36,10 @@ export const links =[
                 name:'AdminProfile',
                 icon:<AiFillSetting/>
             },
+            {
+                name:'Reminders',
+                icon:<AiFillSetting/>
+            },
         ],
     }
 ]

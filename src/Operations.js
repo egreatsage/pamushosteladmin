@@ -19,6 +19,7 @@ const bookingCollectionRef = collection(db, "Bookings");
 const messagesCollectionRef = collection(db, "Messages");
 const noticesCollectionRef = collection(db, "Notices");
 const roomsCollectionRef = collection(db, "Rooms");
+const remindersCollectionRef = collection(db, "Reminders");
 class EmployeeDataService {
   //login User 
   login = async (email, password) => {
@@ -48,6 +49,9 @@ class EmployeeDataService {
   //Staff
   addStaff = (newStaff) => {
     return addDoc(staffCollectionRef, newStaff);
+  };
+  addReminder = (newReminder) => {
+    return addDoc(remindersCollectionRef, newReminder);
   };
   addNotice = (newNotice) => {
     return addDoc(noticesCollectionRef, newNotice);
@@ -129,10 +133,17 @@ class EmployeeDataService {
   getAllBookings = () => {
     return getDocs(bookingCollectionRef);
   };
+  getAllReminders = () => {
+    return getDocs(remindersCollectionRef);
+  };
   //Employees
   getStaff = (id) => {
     const staffDoc = doc(db, "Staff", id);
     return getDoc(staffDoc);
+  };
+  getReminder = (id) => {
+    const reminderDoc = doc(db, "Reminders", id);
+    return getDoc(reminderDoc);
   };
   getNotice = (id) => {
     const noticeDoc = doc(db, "Notices", id);

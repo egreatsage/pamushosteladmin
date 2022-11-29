@@ -152,9 +152,7 @@ const OccupantsAdd = ({ id, setOccupantId }) => {
     </div>
 </div>
 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-        <button type="submit" className="inline-flex justify-center py-2 px-4 border 
-        border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600
-         hover:bg-blue-700 focus:outline-blue focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Submit</button>
+<button  className='bg-gray-700  px-6 rounded-md border text-white py-1'type='submit' variant='standard'>Submit</button>
       </div>
 </form>
     </div>

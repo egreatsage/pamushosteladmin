@@ -1,13 +1,10 @@
-import { Button,Input,TableContainer,Table, TableBody, TableCell, TableRow } from '@mui/material';
+import { Button,TableContainer,Table, TableBody, TableCell, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { AiFillEdit } from 'react-icons/ai';
 import {  MdOutlineDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import EmployeeDataService from '../Operations';
-import { Navbar } from '../componets';
-
 const Employees = ({getStaffId}) => {
-  const [query, setQuery] = useState("")
   const [staffs, setStaff] = useState([]);
   useEffect(() => {
     getAllStaff();
@@ -20,16 +17,6 @@ const Employees = ({getStaffId}) => {
   const deleteHandler = async (id) => {
     await EmployeeDataService.deleteStaff(id);
     getAllStaff();
-  };
-  const [search, setSearch] = useState('');
-
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
-  };
-  const data = {
-    getAllStaff: staffs.filter((doc) =>
-      doc.fullname.includes(search)
-    ),
   };
   return (
 <div className='md:px-10 mb-8'>
@@ -47,14 +34,11 @@ const Employees = ({getStaffId}) => {
        
       </div>
     </div>
-    <div>
-    <label htmlFor="search">
-        Search by Task:
-        <input id="search" type="text" onChange={handleSearch} />
-      </label>
+    <div className='md:pl-9'>
+    <input type='search' placeholder='Search Here' className='border mt-4 border-gray-500 py-2 rounded-md px-2  '/>
     </div>
       <div className='overflow-x-auto md:pl-8'>
-      <Table data={data} >
+      <Table >
       <TableContainer className='rounded-2xl shadow-sm '>
        <TableRow>
               <TableCell>SNO</TableCell>

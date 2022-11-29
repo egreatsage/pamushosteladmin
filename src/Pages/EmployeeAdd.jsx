@@ -174,7 +174,7 @@ const EmployeeAdd = ({ id, setStaffId }) => {
     </div>
 </div>
 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-      <Button type='submit' variant='contained'>Submit</Button>
+<button  className='bg-gray-700  px-6 rounded-md border text-white py-1'type='submit' variant='standard'>Submit</button>
       </div>
 </form>
     </div>

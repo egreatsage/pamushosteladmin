@@ -40,7 +40,10 @@ const Bookings = ({ getBookingId,getOccupantId }) => {
         </button>
       </div>
     </div>
-            <div className='overflow-x-auto md:p-8 mt-5 '>
+    <div className='md:pl-9'>
+    <input type='search' placeholder='Search Here' className='border mt-4 border-gray-500 py-2 rounded-md px-2  '/>
+    </div>
+            <div className='overflow-x-auto md:p-8  '>
       
         <Table >
         <TableContainer className='shadow-lg'>

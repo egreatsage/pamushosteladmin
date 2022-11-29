@@ -237,8 +237,8 @@ const BookingsAdd = ({ id, setBookingId }) => {
       </div>
     </div>
 </div>
-<div className='p-3 mb-8'>
-            <Button  className='hover:bg-teal-900 ml-4'type='submit' variant='standard'>Submit</Button>
+<div className='p-3 mb-8 flex justify-end'>
+<button  className='bg-gray-700  px-6 rounded-md border text-white py-1'type='submit' variant='standard'>Submit</button>
             </div>
         </div>
 </form>
