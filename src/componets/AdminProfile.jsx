@@ -68,7 +68,7 @@ const AdminProfile = () => {
            <p>UserName</p>
         <MenuItem className='mb-3 text-black'>{user && user.displayName}</MenuItem>
         <p>Email</p>
-        <MenuItem className='mb-3 text-black'>Email: {user && user.email}</MenuItem>
+        <MenuItem className='mb-3 text-black'> {user && user.email}</MenuItem>
 
         <MenuItem className='mb-3 text-black'><button  onClick={handleOpen}>Update Account Details</button></MenuItem>
         <Link to='/' className='text-[red] cursor-pointer '>
