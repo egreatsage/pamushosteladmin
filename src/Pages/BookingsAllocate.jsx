@@ -154,8 +154,8 @@ const BookingsAllocate = ({ id, setBookingId ,setOccupantId}) => {
              onChange={(e)=>setExitDate(e.target.value)}
              />
           </div>
-          <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-            <Input  label="User Id" type="text"  className="mt-1
+          <div className="col-span-6 sm:col-span-6 lg:col-span-2 invisible">
+            <Input   label="User Id" type="hidden"  className="mt-1
              focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm 
              sm:text-sm border-gray-300 rounded-md"
              value={userId} 

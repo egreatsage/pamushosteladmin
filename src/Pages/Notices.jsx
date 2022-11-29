@@ -1,14 +1,6 @@
-import { Fragment, useEffect, useState } from "react";
-import {
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-  Button
-} from "@material-tailwind/react";
+import {  useEffect, useState } from "react";
 import {  Divider } from "@mui/material";
-import { Link } from "react-router-dom";
 import EmployeeDataService from '../Operations';
-import { MdOutlineDeleteForever } from "react-icons/md";
  
 function Icon({ id, open, }) {
   
@@ -53,7 +45,7 @@ export default function Notices({getNoticeId}) {
     <div>
     {notices.map((doc,index)=>{
 return(
-<div className=' shadow-lg w-full rounded-md py-3 px-2 my-4'>
+<div className=' shadow-lg w-full rounded-md py-3 px-2 my-4 border border-l-black'>
 
 
 <div className='flex justify-between'>
@@ -67,10 +59,15 @@ return(
 <div className='pt-4 mb-2'>
 <Divider/>
 <p className='text-gray-700 pb-3'>{doc.Notice}</p>
-<Divider/>
-<Divider/>
-<Divider/>
 <Divider className='pb-3'/>
+<div className=' flex justify-end gap-2'>
+          <button className='bg-gray-700  px-6 rounded-md border text-white py-1' 
+           onClick={(e) => 
+            deleteHandler(doc.id)}>Delete</button>
+                <button className='bg-gray-700  px-6 rounded-md border text-white py-1' 
+          onClick={(e) =>
+            getNoticeId(doc.id)}>Edit</button>
+</div>
 </div>
 </div>
 )

@@ -1,55 +1,69 @@
-import React from 'react'
-import { AiOutlineMenu } from 'react-icons/ai'
-import { MdOutlineSpaceDashboard ,MdOutlineBedroomChild,MdPeopleOutline } from 'react-icons/md'
-import {IoIosPeople} from 'react-icons/io'
-import {SiGooglemessages} from 'react-icons/si'
-import {FiUsers} from 'react-icons/fi'
-import { Link } from 'react-router-dom'
-import {TbBrandBooking} from 'react-icons/tb'
-import { Button, Tooltip } from '@material-tailwind/react'
-const Sidebar = () => {
-  return (
-    <div>
-      
-      <div className="flex space-x-2">
-   <div className='p-2'> 
-    <Tooltip  content="Menu" placement='bottom'>
-    <button className="p-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-      <AiOutlineMenu className='text-2xl'/>
-    </button>
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { SiShopware } from 'react-icons/si';
+import { MdOutlineCancel } from 'react-icons/md';
 
-    </Tooltip>
-   
-    <div className="offcanvas offcanvas-start fixed bottom-0 flex flex-col max-w-full bg-white invisible bg-clip-padding shadow-sm outline-none transition duration-300 ease-in-out text-gray-700 top-0 left-0 border-none w-96" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-      <div className="offcanvas-header flex items-center justify-between p-4">
-        <h5 className="offcanvas-title text-black   mt-3 text-2xl mb-0 leading-normal font-bold" id="offcanvasExampleLabel">Pamus Admin</h5>
-        <button type="button" className="btn-close box-content w-4 h-4 p-2 -my-5 -mr-2 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div className="offcanvas-body flex-grow p-6 items-center justify-center gap-9 overflow-y-auto">
-          
-           <Link to='/Dashboard'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
-              <MdOutlineSpaceDashboard className='mt-1'/>
-              Dashboard
-           </div></Link>
-           <Link to='/bookings'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
-              <TbBrandBooking  className='mt-1'/>
-              Bookings </div></Link>
-           <Link to='/occupants'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
-              <MdPeopleOutline className='mt-1'/>Occupants</div></Link>
-              
-            <Link to='/employees'> <div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
-              <IoIosPeople className='mt-1 '/> Employees </div></Link>
-           <Link to='/messages'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
-              <SiGooglemessages className='mt-1'/> Messages</div></Link>
-              <Link to='/users'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
-              <FiUsers className='mt-1'/>Users</div></Link>
-            <Link to='/rooms'><div className='mb-9 flex gap-3 pl-8  px-3 rounded-md py-2 hover:bg-gray-700 hover:text-white font-bold text-black '>
-              <MdOutlineBedroomChild className='mt-1'/> Rooms</div></Link>
-      </div>
+
+
+import { useStateContext } from '../contexts/ContextProvider';
+import { Tooltip } from '@mui/material';
+import { links } from './data/dummy';
+
+const Sidebar = () => {
+  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+
+  const handleCloseSideBar = () => {
+    if (activeMenu !== undefined && screenSize <= 900) {
+      setActiveMenu(false);
+    }
+  };
+
+  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white text-black  text-md m-2';
+  const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
+
+  return (
+    <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto mt-8 pb-10 ">
+      {activeMenu && (
+        <>
+          <div className="flex justify-between items-center ">
+            <Link to="/" onClick={handleCloseSideBar} className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
+              <SiShopware /> <span className='text-black'>Pamus Admin</span>
+            </Link>
+            <Tooltip title="Menu" position="BottomCenter">
+              <button
+                type="button"
+                onClick={() => setActiveMenu(!activeMenu)}
+                className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
+              >
+                <MdOutlineCancel />
+              </button>
+            </Tooltip>
+          </div>
+          <div className="mt-10 bg-white">
+            {links.map((item) => (
+              <div key={item.title}>
+                <p className="text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase">
+                  {item.title}
+                </p>
+                {item.links.map((link) => (
+                  <NavLink
+                    to={`/${link.name}`}
+                    key={link.name}
+                    onClick={handleCloseSideBar}
+                   
+                    className={({ isActive }) => (isActive ? activeLink : normalLink)}
+                  >
+                    {link.icon}
+                    <span className="capitalize ">{link.name}</span>
+                  </NavLink>
+                ))}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
-  </div> 
-</div>
-    </div>
-  )
-}
-export default Sidebar
+  );
+};
+
+export default Sidebar;

@@ -65,7 +65,8 @@ const NoticeAdd = ({id, setNoticeId}) => {
    {''}
    {message?.msg}
  </Alert>
-)} 
+)}       <div className="text-center">Add A Notice</div>
+         <p className="italic text-sm text-red-300 text-center">students will be able to view these noties in their portal</p>
              <form onSubmit={handleSubmit} className='' >
                 <div className='mx-3 my-3 mb-4'>
                 <Input  className='px-2' color='teal'  label='Your Name' type='name'
@@ -86,7 +87,7 @@ const NoticeAdd = ({id, setNoticeId}) => {
                   />
                 </div>
                    <div className=' flex justify-end'>
-                        <Button type='submit' className='py-2 bg-[black] text-white'>Submit</Button>                                                                                                 
+                        <button type='submit' className=' bg-gray-700 py-1 px-6 rounded-md text-white'>Submit</button>                                                                                                 
                    </div>
              </form>
            </div>

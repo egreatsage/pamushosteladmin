@@ -7,3 +7,5 @@ export { default as Navbar } from './Navbar';
 export { default as Notifications } from './Notifications';
 export { default as Sidebar } from './Sidebar';
 export { default as Login } from './Login';
+export { default as nn } from './nn';
+

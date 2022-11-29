@@ -1,4 +1,4 @@
-import { db } from "./dbconfig";
+import { db,storage } from "./dbconfig";
 
 import {
   collection,
@@ -9,6 +9,8 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytes, } from "firebase/storage";
+import { updateProfile } from "firebase/auth";
 
 const usersCollectionRef = collection(db, "Users");
 const staffCollectionRef = collection(db, "Staff");
@@ -16,6 +18,7 @@ const occupantCollectionRef = collection(db, "Occupants");
 const bookingCollectionRef = collection(db, "Bookings");
 const messagesCollectionRef = collection(db, "Messages");
 const noticesCollectionRef = collection(db, "Notices");
+const roomsCollectionRef = collection(db, "Rooms");
 class EmployeeDataService {
   //login User 
   login = async (email, password) => {
@@ -108,6 +111,9 @@ class EmployeeDataService {
   getAllStaff = () => {
     return getDocs(staffCollectionRef);
   };
+  getAllRooms = () => {
+    return getDocs(roomsCollectionRef);
+  };
   getAllNotices = () => {
     return getDocs(noticesCollectionRef);
   };
@@ -150,4 +156,14 @@ class EmployeeDataService {
 }
 
 export default new EmployeeDataService();
+
+export async function upload(file,user,setLoading){
+  const fileRef = ref(storage,user.uid )
+   setLoading(true)
+   const snapshot = await uploadBytes(fileRef,file)
+  const photoURL = await getDownloadURL(fileRef)
+  updateProfile(user,{photoURL})
+  setLoading(false);
+  alert('uploaded successfully')
+}
 

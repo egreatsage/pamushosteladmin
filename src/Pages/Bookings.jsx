@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import EmployeeDataService from '../Operations';
 import { AiFillEdit } from 'react-icons/ai';
 import { MdOutlineDeleteForever } from 'react-icons/md';
-import {Button, Table,TableBody, TableCell, TableContainer,TableHead, TableRow,} from '@mui/material'
+import {Button, Container, LinearProgress, Table,TableBody, TableCell, TableContainer,TableHead, TableRow,} from '@mui/material'
 const Bookings = ({ getBookingId,getOccupantId }) => {
   const [bookings, setBookings] = useState([]);
+  const [loading, setloading] = useState(false);
   useEffect(() => {
     getAllBookings();
   }, []);
@@ -14,13 +15,18 @@ const Bookings = ({ getBookingId,getOccupantId }) => {
     const data = await EmployeeDataService.getAllBookings();
     setBookings(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
-
   const deleteHandler = async (id) => {
     await EmployeeDataService.deleteBooking(id);
     getAllBookings();
   };
+  if(loading){
+    return <div>
+      <LinearProgress/>
+    </div>
+  }
   return (
-    <div className='md:px-10 px-2 mb-5 '>
+    <div className='md:px-10 px-2 mb-5 overflow-x-hidden '>
+      <Container>
       <div className='pt-8'>
                  <p className='font-bold mb-3 text-xl  pb-2  text-center'> Booking Details</p>
                  <div className=" md:pl-9 flex gap-6">
@@ -109,6 +115,8 @@ const Bookings = ({ getBookingId,getOccupantId }) => {
            
             </div>
             </div>
+      </Container>
+    
             </div>
   )
 }

@@ -1,19 +1,17 @@
 
-import { Input,Button, IconButton } from '@material-tailwind/react';
-import { Alert, Card } from '@mui/material'
+
+import { Alert} from '@mui/material'
 import React, { useState } from 'react'
 import { AiOutlineLock, AiOutlineMail } from 'react-icons/ai';
-import { FcGoogle } from 'react-icons/fc';
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useUserAuth } from '../contexts/UserAuthContext';
 
 
 const Login = () => {
-  const {logIn,googleSignIn} = useUserAuth();
+  const {logIn} = useUserAuth();
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const [error, setError] = useState()
-  const [loading, setloading] = useState(false)
   const navigate = useNavigate();
  const handleSubmit = async (e)=>{
 
@@ -23,13 +21,10 @@ const Login = () => {
         setError("")
         try{
           await logIn(email,password);
-            navigate('/Dashboard')
+            navigate('/')
         }catch(err){
           setError("Wrong Credentials")
-                }        }
-  
-              
-
+                }}
   return (
     <div>
          <div

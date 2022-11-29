@@ -1,65 +1,76 @@
-import { Menu, MenuHandler, MenuItem, MenuList } from '@material-tailwind/react'
-import { Button, IconButton, Tooltip } from '@mui/material'
-import React from 'react'
-import {  AiOutlineLogout } from 'react-icons/ai'
-import Sidebar from './Sidebar'
-import {useUserAuth} from '../contexts/UserAuthContext'
-const Navbar = () => {
-  const {logOut, user} = useUserAuth();
-  const handlelogout= async ()=>{
-    try{
-        await logOut();
-    }catch{     
-    }
-  }
-  
-  return (
-    <div>
-       
-    { user ? 
-             <div className='relative flex justify-between  p-2 bg-gray-100 '>
-             <Sidebar/>
-       
-             <p className='md:text-2xl text pt-2 text-xl'>Pamus Hostel</p>
-             <div className='flex gap-7'>
-             
-           <Tooltip title="Account Settings" placement='bottom'>
-           <Menu>
-             <MenuHandler>
-               <IconButton>
-               <img src="https://t3.ftcdn.net/jpg/00/07/32/48/360_F_7324855_mx4CEBWTr81XLOrlQccCROtP2uNR7xbk.jpg" className='w-14 h-14 rounded-full' alt="" />
-               </IconButton>
-               
-             </MenuHandler>
-             <MenuList>
-               <MenuItem>Account:</MenuItem>
-               <MenuItem>{user && user.email} </MenuItem>
-               <div class="bottom-0 flex  mt-3 mb-3">
-               <Button onClick={handlelogout} variant="text" color="error">
-                 Log Out
-                 </Button>
-                 <AiOutlineLogout className='mt-3 text-red-700'/>
-               
-               </div>
-             </MenuList>
-            
-           </Menu>
-       </Tooltip>
-       
-       
-           </div> 
-           </div> :
-          <div className='text-center px-2 py-4 text-3xl'>
-            <h1>Pamus Admin</h1>
-          </div>
-        }
-  
-    </div>
-  
-    
- 
-   
-  )
-}
+import React, { useEffect } from 'react';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { FiShoppingCart } from 'react-icons/fi';
+import { BsChatLeft } from 'react-icons/bs';
+import { RiNotification3Line } from 'react-icons/ri';
+import { MdKeyboardArrowDown } from 'react-icons/md';
+import {} from './AdminProfile'
 
-export default Navbar
+import avatar from '../assets/avatar.png';
+import { nn, Header, Notifications, AdminProfile } from '.';
+import { useStateContext } from '../contexts/ContextProvider';
+import { Tooltip } from '@mui/material';
+
+const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
+  <Tooltip title={title} position="BottomCenter">
+    <button
+      type="button"
+      onClick={() => customFunc()}
+      style={{ color }}
+      className="relative text-xl rounded-full p-3 hover:bg-light-gray"
+    >
+      <span
+        style={{ background: dotColor }}
+        className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
+      />
+      {icon}
+    </button>
+  </Tooltip>
+);
+
+const Navbar = () => {
+  const { currentColor, activeMenu, setActiveMenu, handleClick, isClicked, setScreenSize, screenSize } = useStateContext();
+
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [screenSize]);
+
+  const handleActiveMenu = () => setActiveMenu(!activeMenu);
+
+  return (
+    <div className="flex  justify-between p-2 md:ml-6 md:mr-6 mb-7 relative shadow-md rounded-md">
+
+      <NavButton title="Menu" customFunc={handleActiveMenu} color={currentColor} icon={<AiOutlineMenu />} />
+      <div className="flex">
+      
+        <Tooltip titile="Profile" position="BottomCenter">
+          <div
+            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
+            onClick={() => handleClick('userProfile')}
+          >
+           <AdminProfile/>
+           
+          </div>
+        </Tooltip>
+
+       
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;

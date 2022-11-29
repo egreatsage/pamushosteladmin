@@ -17,51 +17,26 @@ export const links =[
                 icon:<AiFillSetting/>
             },
             {
+                name:'Occupants',
+                icon:<AiFillSetting/>
+            },
+            {
+                name:'Users',
+                icon:<AiFillSetting/>
+            },
+            {
                 name:'Employees',
                 icon:<AiFillSetting/>
             },
             {
-                name:'Messages',
+                name:'Rooms',
+                icon:<AiFillSetting/>
+            },
+            {
+                name:'AdminProfile',
                 icon:<AiFillSetting/>
             },
         ],
     }
 ]
-export const sidedata = [
-    {
-        title:'Dashboard',
-        path:'/',
-        icon:<AiOutlineUserSwitch/>,
-        cName:'nav-text'
-    },
-    {
-        title:'Bookings',
-        path:'/bookings',
-        icon:<AiOutlineUserSwitch/>,
-        cName:'nav-text'
-    },
-    {
-        title:'Occupants',
-        path:'/occupants',
-        icon:<AiOutlineUserSwitch/>,
-        cName:'nav-text'
-    },
-    {
-        title:'Employees',
-        path:'/employees',
-        icon:<AiOutlineUserSwitch/>,
-        cName:'nav-text'
-    },
-    {
-        title:'Rooms',
-        path:'/rooms',
-        icon:<AiOutlineUserSwitch/>,
-        cName:'nav-text'
-    },
-    {
-        title:'Users',
-        path:'/users',
-        icon:<AiOutlineUserSwitch/>,
-        cName:'nav-text'
-    }
-]
+

@@ -89,7 +89,7 @@ const BookingsAdd = ({ id, setBookingId }) => {
     }
   }, [id]);
   return (
-<div className='pb-9 mb-9 overflow-y-auto'>
+<div className='pb-9 mb-9 overflow-y-auto bg-white'>
   <Container className='mb-9 shadow-blue-900'>
   <div className='mb-9'>
 

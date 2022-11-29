@@ -43,7 +43,7 @@ const Messages = () => {
               <div>
                   {messages.map((doc,index)=>{
 return(
-  <div className=' shadow-lg w-full px-2 my-4'>
+  <div className=' shadow-lg w-full px-2 my-4 border border-r-black'>
          <p className='text-center leading-tight font-bold text-xl'>Notifications</p>
          <div className='flex justify-between'>
           <div className=''>
@@ -59,10 +59,13 @@ return(
          <div className='pt-4 mb-2'>
              <Divider/>
              <p className='text-gray-700 pb-3'>{doc.message}</p>
-             <Divider/>
-             <Divider/>
-             <Divider/>
+           
              <Divider className='pb-3'/>
+         </div>
+         <div className=' flex justify-end'>
+          <button className='bg-gray-700  px-6 rounded-md border text-white py-1' 
+           onClick={(e) => 
+            deleteHandler(doc.id)}>Delete</button>
          </div>
 </div>
 )
