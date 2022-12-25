@@ -16,7 +16,6 @@ const Reminders = () => {
      reminder,date
     };
     try {
-    
         await EmployeeDataService.addReminder(newReminder);
         setmessage({ error: false, msg: "Reminder Added" });
         setTimeout(() => {
@@ -45,6 +44,21 @@ const Reminders = () => {
   return (
     <div className='mt-9 pt-9'>
       <div className='mt-9 md:mx-9 mx-2'>
+      {message?.msg && (
+      
+      <Alert className='Relative'
+        color={message?.error? 'error' :'info'}
+        onClose={()=> setmessage('')}
+        dismissible='true'
+        >
+          {''}
+          {message?.msg}
+          <div>
+         
+          </div>
+        
+        </Alert>
+      )}
       <h1 className=" text-md md:text-2xl my-6 text-center">
             Add Your To Do
         </h1>

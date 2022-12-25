@@ -18,11 +18,8 @@ import RoomsAdd from './Pages/RoomsAdd';
 import UsersAdd from './Pages/UsersAdd';
 import { useState } from 'react';
 import Dashboard from './Pages/Dashboard';
-import { useUserAuth } from './contexts/UserAuthContext';
 import Notices from './Pages/Notices';
 import NoticeAdd from './Pages/NoticeAdd';
-import { Tooltip } from '@mui/material';
-import { FiSettings } from 'react-icons/fi';
 import  Reminders  from './Pages/Reminders';
 
 function App() {
@@ -31,7 +28,6 @@ function App() {
   const [occupantId, setOccupantId] = useState('');
   const [noticeId, setNoticeId] = useState('');
 
-  const {user} = useUserAuth();
 
   const getStaffHandler = (id)=>{
     setStaffId(id);
@@ -45,7 +41,6 @@ function App() {
   const getBookingIdHandler=(id) =>{
     setBookingId(id);
   }  
-  const { activeMenu } = useStateContext();
   return (
     <div>
     
