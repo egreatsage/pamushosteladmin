@@ -68,7 +68,7 @@ const EmployeeAdd = ({ id, setStaffId }) => {
   useEffect(() => {
     if (id !== undefined && id !== "") {
       editHandler();
-    }
+    }   //eslint-disable-next-line
   }, [id]);
  
  

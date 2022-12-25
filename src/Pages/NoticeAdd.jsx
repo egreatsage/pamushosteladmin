@@ -49,7 +49,7 @@ const NoticeAdd = ({id, setNoticeId}) => {
     useEffect(() => {
       if (id !== undefined && id !== "") {
         editHandler();
-      }
+      }   //eslint-disable-next-line
     }, [id]);
   return (
     <div>

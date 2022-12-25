@@ -51,7 +51,7 @@ function App() {
     
     <BrowserRouter>
     
-             <Navbar/>
+             <ProtectedRoute><Navbar/></ProtectedRoute>
               <Routes>
               <Route path="/" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
               <Route path="/bookings" element={

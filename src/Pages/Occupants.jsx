@@ -1,4 +1,4 @@
-import {TableCell,TableRow,TableBody,Button,TableContainer, Table} from '@mui/material'
+import {TableCell,TableRow,TableBody,Button,Table} from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import EmployeeDataService from '../Operations';
@@ -57,8 +57,7 @@ const Occupants = ({ getOccupantId }) => {
               <TableCell>Delete</TableCell>        
               </TableRow>
        <TableBody>
-        {occupants.
-         filter((row) =>
+        {occupants.filter((row) =>
          !searchedVal.length || row.FName
            .toString()
            .toLowerCase()

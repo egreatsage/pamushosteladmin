@@ -6,8 +6,6 @@ import {FiLogOut} from 'react-icons/fi'
 import {Menu,MenuHandler,MenuList,MenuItem,} from "@material-tailwind/react";
 import { Box } from '@mui/system';
 import { Link, useNavigate } from 'react-router-dom';
-import Login from './Login';
-import { MdKeyboardArrowDown } from 'react-icons/md';
 import SignUp from './SignUp';
  
 const AdminProfile = () => {
@@ -57,14 +55,14 @@ const AdminProfile = () => {
       <MenuHandler>
       <Tooltip title="Account settings">
       <button className='rounded-full flex gap-2 '>
-            <img src={photoURL} alt="Photo" className='md:h-8 md:w-8 w-8 h-8  object-fit-cover rounded-full'/>
+            <img src={photoURL} alt="profile" className='md:h-8 md:w-8 w-8 h-8  object-fit-cover rounded-full'/>
             </button>
             </Tooltip>
       </MenuHandler>
      
       <MenuList>
         <div className='flex justify-center'>
-        <img src={photoURL} alt="Photo" className='md:h-16 md:w-16 w-12 h-12  object-fit-cover rounded-full'/>
+        <img src={photoURL} alt="profile" className='md:h-16 md:w-16 w-12 h-12  object-fit-cover rounded-full'/>
         </div>
            <h1 className='text-center font-bold my-3 text-black'>Account Details</h1>
            <p>UserName</p>

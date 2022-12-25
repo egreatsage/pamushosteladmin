@@ -70,8 +70,7 @@ const Bookings = ({ getBookingId }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-        {bookings.
-        filter((row) =>
+        {bookings.filter((row) =>
         !searchedVal.length || row.FName
           .toString()
           .toLowerCase()

@@ -7,7 +7,6 @@ import {BsPeople} from 'react-icons/bs'
 import {MdPeopleOutline,MdOutlinePeopleOutline,MdOutlineAdminPanelSettings} from 'react-icons/md'
 import {SiGoogleclassroom} from 'react-icons/si'
 import {FcTodoList} from 'react-icons/fc'
-import {GrUserAdmin} from 'react-icons/gr'
 import AdminProfile from './AdminProfile'
 const Navbar = () => {
   return (

@@ -82,8 +82,9 @@ const BookingsAdd = ({ id, setBookingId }) => {
   };
   useEffect(() => {
     if (id !== undefined && id !== "") {
+   
       editHandler();
-    }
+    }   //eslint-disable-next-line
   }, [id]);
   return (
 <div className='pb-9 mb-9 overflow-y-auto bg-[#FAFBFB]'>

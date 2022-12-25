@@ -2,7 +2,6 @@ import React,{useEffect, useState ,Fragment}from 'react';
 import EmployeeDataService from '../Operations';
 import {RiArrowDropDownLine} from 'react-icons/ri'
 import {Accordion,AccordionHeader,AccordionBody,} from '@material-tailwind/react'
-import { Divider } from '@mui/material';
 const Messages = () => {
   const [messages, setMessages] = useState([]);
   useEffect(() => {
