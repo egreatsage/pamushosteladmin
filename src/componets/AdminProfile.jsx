@@ -104,7 +104,7 @@ const AdminProfile = () => {
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           </Typography>
-          <div className='md:w-full w-96 m-5'>
+          <div className='md:w-full w-96'>
           <SignUp/>
           </div>
          
