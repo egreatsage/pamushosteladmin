@@ -9,7 +9,7 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytes, } from "firebase/storage";
+import { getDownloadURL, ref, } from "firebase/storage";
 import { updateProfile } from "firebase/auth";
 
 const usersCollectionRef = collection(db, "Users");

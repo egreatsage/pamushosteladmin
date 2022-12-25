@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'; 
 import {Navbar,Login, Sidebar} from './componets'
 import Bookings from './Pages/Bookings'
-import { useStateContext } from './contexts/ContextProvider';
 import ProtectedRoute from './componets/ProtectedRoute';
 import Messages from './Pages/Messages';
 import Employees from './Pages/Employees';
