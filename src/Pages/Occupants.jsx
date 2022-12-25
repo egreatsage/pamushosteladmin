@@ -1,9 +1,10 @@
-import {TableCell,TableRow,TableBody,Button,TableContainer, Table, Input} from '@mui/material'
+import {TableCell,TableRow,TableBody,Button,TableContainer, Table} from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import EmployeeDataService from '../Operations';
-import { AiFillEdit } from 'react-icons/ai';
+import { AiFillEdit, AiOutlineSearch } from 'react-icons/ai';
 import { MdOutlineDeleteForever } from 'react-icons/md';
+import { Input } from '@material-tailwind/react';
 const Occupants = ({ getOccupantId }) => {
   const [occupants, setOccupants] = useState([]);
   useEffect(() => {
@@ -18,11 +19,12 @@ const Occupants = ({ getOccupantId }) => {
     await EmployeeDataService.deleteOccupant(id);
     getAllOccupants();
   };
-  
+  const [searchedVal, setSearchedVal] = useState("");
   return (
     <div className='mt-9 pt-8 px-2'> 
      <p className='text-xl text-gray-600 mt-8 text-center'>Occupants Details</p>
-    <div className="mt-6 flex gap-6">
+     <div className="md:flex md:justify-between">
+     <div className="mt-6 flex gap-6">
       <Link to='/Occupantadd'><button 
       className='bg-gray-700  px-6 rounded-md  text-white py-1' variant='outlined'>Add  Occupant</button>
        </Link>
@@ -32,9 +34,11 @@ const Occupants = ({ getOccupantId }) => {
         </button>
       </div>
     </div>
-    <div className='md:pl-9'>
-    <input type='search' placeholder='Search Here' className='border mt-4 border-gray-500 py-1 rounded-md px-2  '/>
+    <div className='w-64 flex justify-end'>
+    <Input variant="standard" label="Search Here"  color='teal' onChange={(e) => setSearchedVal(e.target.value)} icon={<AiOutlineSearch/>} />
     </div>
+     </div>
+   
   
       <div className='overflow-x-auto'>
       <Table>
@@ -53,7 +57,13 @@ const Occupants = ({ getOccupantId }) => {
               <TableCell>Delete</TableCell>        
               </TableRow>
        <TableBody>
-        {occupants.map((doc,index)=>{
+        {occupants.
+         filter((row) =>
+         !searchedVal.length || row.FName
+           .toString()
+           .toLowerCase()
+           .includes(searchedVal.toString().toLowerCase()) 
+       ).map((doc,index)=>{
              return(
        <TableRow>
               <TableCell>{index+1}</TableCell>

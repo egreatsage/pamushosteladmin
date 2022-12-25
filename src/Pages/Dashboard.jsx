@@ -1,4 +1,4 @@
-import { IconButton } from '@material-tailwind/react'
+import { IconButton} from '@material-tailwind/react'
 import { Container, Modal, Typography } from '@mui/material'
 import React from 'react'
 import {TbBrandBooking} from 'react-icons/tb'
@@ -10,6 +10,7 @@ import Messages from './Messages'
 import Notices from './Notices'
 import NoticeAdd from './NoticeAdd'
 import { Box } from '@mui/system'
+
 const Dashboard = () => {
   
   const [open, setOpen] = React.useState(false);
@@ -26,8 +27,10 @@ const Dashboard = () => {
     boxShadow: 24,
     p: 4,
   };
+  
   return (
     <div className='mt-12 pt-11'>
+      
       <Container>
       <div className="grid md:grid-cols-4 mb-3 gap-3">
           <div className="w-full md:w-60 py-2   rounded-md mb-4 bg-gray-100">
@@ -68,8 +71,8 @@ const Dashboard = () => {
           </div>
       </div>
       <div className='grid md:grid-cols-2 gap-3'>
-                 <div className=''>
-                  <h1  className='text-center text-2xl font-bold text-gray-800 mb-4'>Messages And Notifications</h1>
+                 <div>
+                  <h1  className='text-center text-2xl font-bold text-gray-800 mb-4 '>Messages And Notifications</h1>
                        <Messages/>
                  </div>
                   

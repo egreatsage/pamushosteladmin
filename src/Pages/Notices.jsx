@@ -1,6 +1,8 @@
-import {  useEffect, useState } from "react";
+import {  useEffect, useState ,Fragment} from "react";
 import {  Divider } from "@mui/material";
 import EmployeeDataService from '../Operations';
+import {RiArrowDropDownLine} from 'react-icons/ri'
+import {Accordion,AccordionHeader,AccordionBody,} from '@material-tailwind/react'
 export default function Notices({getNoticeId}) {
   useEffect(() => {
     getAllNotices();
@@ -15,34 +17,41 @@ export default function Notices({getNoticeId}) {
     getAllNotices();
   };
   const [notices, setNotices] = useState([]);
+  function Icon({ id, open }) {
+    return (
+     
+     
+       <RiArrowDropDownLine
+       className={`${
+        id === open ? "rotate-180" : ""
+      } h-5 w-5 transition-transform`}/>
+    );
+  }
+  const [openn, setOpenn] = useState(0);
+ 
+  const handleOpenn = (value) => {
+    setOpenn(openn === value ? 0 : value);
+  };
   return (
     <div>
-    {notices.map((doc)=>{
+    {notices.map((doc,index )=>{
 return(
-<div className=' shadow-lg w-full rounded-md py-3 px-2 my-4 border border-l-black'>
+<div className=' shadow-lg w-full border rounded-md  px-2 my-4  '>
+<Fragment>
+      <Accordion open={openn === 1} icon={<Icon id={1} open={openn} />}>
+        <AccordionHeader onClick={() => handleOpenn(1)} className='flex justify-between text-sm md:text-md text-black'>
+             <span>{index + 1}.   {doc.Creator}</span>
+             <span>{doc.TheDate}</span>
+        </AccordionHeader>
+        <AccordionBody>
+        { doc.Notice}
+        <div className='flex justify-end my-3'><button 
+         onClick={(e) => 
+          deleteHandler(doc.id)} className=' border border-[#03C9D7] px-6 rounded-md  text-black py-1'>Delete</button></div>
+        </AccordionBody>
+      </Accordion>
+    </Fragment>
 
-
-<div className='flex justify-between'>
-<div className=' '>
-<p><span className='font-bold'>By: </span> {doc.Creator}</p>
-</div>
-<div className=''>
-<p><span className='font-bold'>Email:</span>{doc.TheDate}</p>
-</div>
-</div>           
-<div className='pt-4 mb-2'>
-<Divider/>
-<p className='text-gray-700 pb-3'>{doc.Notice}</p>
-<Divider className='pb-3'/>
-<div className=' flex justify-end gap-2'>
-          <button className='bg-gray-700  px-6 rounded-md border text-white py-1' 
-           onClick={(e) => 
-            deleteHandler(doc.id)}>Delete</button>
-                <button className='bg-gray-700  px-6 rounded-md border text-white py-1' 
-          onClick={(e) =>
-            getNoticeId(doc.id)}>Edit</button>
-</div>
-</div>
 </div>
 )
 })}

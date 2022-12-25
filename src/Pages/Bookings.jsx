@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import EmployeeDataService from '../Operations';
-import { AiFillEdit } from 'react-icons/ai';
+import { AiFillEdit, AiOutlineSearch } from 'react-icons/ai';
 import { MdOutlineDeleteForever } from 'react-icons/md';
-import {Button, Container, LinearProgress, Table,TableBody, TableCell, TableContainer,TableHead, TableRow,} from '@mui/material'
+import {Button, Container, Table,TableBody, TableCell, TableContainer,TableHead, TableRow,} from '@mui/material'
+import { Input } from '@material-tailwind/react';
 const Bookings = ({ getBookingId }) => {
   const [bookings, setBookings] = useState([]);
   useEffect(() => {
@@ -24,7 +25,8 @@ const Bookings = ({ getBookingId }) => {
       <Container>
       <div className='pt-8'>
                  <p className='font-bold mb-3 text-xl  pb-2  text-center'> Booking Details</p>
-                 <div className=" md:pl-9 flex gap-6">
+               <div className="md:flex md:justify-between">
+               <div className=" md:pl-9 flex gap-6">
       <Link to='/BookingsAdd'><button 
       className='bg-gray-700  px-6 rounded-md  text-white py-1'>Add Booking</button></Link>
       <div className="mb-2">
@@ -35,9 +37,12 @@ const Bookings = ({ getBookingId }) => {
         </button>
       </div>
     </div>
-    <div className='md:pl-9 flex justify-end'>
-    <input type='search' placeholder='Search Here' onChange={(e) => setSearchedVal(e.target.value)}  className='border mt-4 border-gray-800 py-1 rounded-md px-2  '/>
+    <div className='w-64 flex justify-end'>
+    <Input variant="standard" label="Search Here"  color='teal' onChange={(e) => setSearchedVal(e.target.value)} icon={<AiOutlineSearch/>} />
     </div>
+               </div>
+             
+   
             <div className='overflow-x-auto md:p-8  '>
         <Table >
         <TableContainer className='shadow-lg'>
@@ -99,7 +104,7 @@ const Bookings = ({ getBookingId }) => {
             </TableCell>
             <TableCell className='text-[red]'>
             <Button variant="outlined"  onClick={(e) => 
-              deleteHandler(doc.id)}startIcon={<MdOutlineDeleteForever className='text-[red]'/>}>
+              deleteHandler(doc.id)} startIcon={<MdOutlineDeleteForever className='text-[red]'/>}>
              Delete
             </Button>
             </TableCell>

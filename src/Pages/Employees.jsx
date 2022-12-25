@@ -1,6 +1,7 @@
+import { Input } from '@material-tailwind/react';
 import { Button,TableContainer,Table, TableBody, TableCell, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { AiFillEdit } from 'react-icons/ai';
+import { AiFillEdit, AiOutlineSearch } from 'react-icons/ai';
 import {  MdOutlineDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import EmployeeDataService from '../Operations';
@@ -24,7 +25,8 @@ const Employees = ({getStaffId}) => {
     <div className='pt-8 md:pl-8'>
     <p className='text-xl text-gray-600 text-center'>Staff Details</p>
             <div className='overflow-x-auto md:p-8 mt-8 '>
-    <div className=" md:pl-8 flex gap-6">
+              <div className="md:flex md:justify-between">
+              <div className=" md:pl-8 flex gap-6 mb-3">
       <Link to='/employeeadd'><button 
       className='bg-gray-700  px-6 rounded-md  text-white py-1'>Add Employee</button>
        </Link>
@@ -35,9 +37,12 @@ const Employees = ({getStaffId}) => {
        
       </div>
     </div>
-    <div className='md:pl-9'>
-    <input type='search' placeholder='Search Here' onChange={(e) => setSearchedVal(e.target.value)}  className='border mt-4 border-gray-500 py-1 rounded-md px-2  '/>
+    <div className='w-64 flex justify-end  '>
+    <Input variant="standard" label="Search Here"  color='teal' onChange={(e) => setSearchedVal(e.target.value)} icon={<AiOutlineSearch/>} />
     </div>
+              </div>
+   
+   
       <div className='overflow-x-auto md:pl-8'>
       <Table >
       <TableContainer className='rounded-2xl shadow-sm '>

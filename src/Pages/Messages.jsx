@@ -1,6 +1,8 @@
-import React,{useEffect, useState }from 'react';
-import { Divider} from '@mui/material' 
+import React,{useEffect, useState ,Fragment}from 'react';
 import EmployeeDataService from '../Operations';
+import {RiArrowDropDownLine} from 'react-icons/ri'
+import {Accordion,AccordionHeader,AccordionBody,} from '@material-tailwind/react'
+import { Divider } from '@mui/material';
 const Messages = () => {
   const [messages, setMessages] = useState([]);
   useEffect(() => {
@@ -14,35 +16,44 @@ const Messages = () => {
     await EmployeeDataService.deleteMessage(id);
     getAllMessages();
   };
+  function Icon({ id, open }) {
+    return (
+     
+     
+       <RiArrowDropDownLine
+       className={`${
+        id === open ? "rotate-180" : ""
+      } h-5 w-5 transition-transform`}/>
+    );
+  }
+  const [openn, setOpenn] = useState(0);
+ 
+  const handleOpenn = (value) => {
+    setOpenn(openn === value ? 0 : value);
+  };
   return (
-              <div>
+              <div className='md:mt-12 pt-1 border border-blue-gray-50 shadow-lg rounded-md'>
                   {messages.map((doc,index)=>{
 return(
-  <div className=' shadow-lg w-full px-2 my-4 border border-r-black'>
-         <p className='text-center leading-tight font-bold text-xl'>Notifications</p>
-         <div className='flex justify-between'>
-          <div className=''>
-         
-             <div className=''>
-              <p><span className='font-bold'>Name: </span> {doc.fullname}</p>
-             </div>
-             <div className=''>
-              <p><span className='font-bold'>Email:</span>{doc.email}</p>
-             </div>
-         </div>           
-         </div>
-         <div className='pt-4 mb-2'>
-             <Divider/>
-             <p className='text-gray-700 pb-3'>{doc.message}</p>
-           
-             <Divider className='pb-3'/>
-         </div>
-         <div className=' flex justify-end'>
-          <button className='bg-gray-700  px-6 rounded-md border text-white py-1' 
-           onClick={(e) => 
-            deleteHandler(doc.id)}>Delete</button>
-         </div>
+  <div className='  w-full px-2 my-4  rounded-md'>
+         <Fragment>
+      <Accordion open={openn === 1} icon={<Icon id={1} open={openn} />}>
+        <AccordionHeader onClick={() => handleOpenn(1)} className='flex justify-between text-sm md:text-md text-black'>
+             <span>{index + 1}. {doc.fullname}</span>
+             <span>{doc.email}</span>
+  
+        </AccordionHeader>
+        <AccordionBody >
+        { doc.message}
+        <div className='flex justify-end my-3'><button 
+         onClick={(e) => 
+          deleteHandler(doc.id)} className=' border border-[#03C9D7] px-6 rounded-md  text-black py-1'>Delete</button></div>
+        </AccordionBody>
+      </Accordion>
+    </Fragment>
 </div>
+
+            
 )
 })}
 
