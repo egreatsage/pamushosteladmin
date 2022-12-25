@@ -38,6 +38,7 @@ const Navbar = () => {
   </div>
 </div>
         </div>
+        <div><h1>Pamus Admin</h1></div>
         <div>
           <AdminProfile/>
         </div>
