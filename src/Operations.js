@@ -9,7 +9,7 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
-import { getDownloadURL, ref, } from "firebase/storage";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { updateProfile } from "firebase/auth";
 
 const usersCollectionRef = collection(db, "Users");
@@ -175,6 +175,7 @@ export default new EmployeeDataService();
 export async function upload(file,user,setLoading){
   const fileRef = ref(storage,user.uid )
    setLoading(true)
+const snapshot = await uploadBytes(fileRef,file)
   
   const photoURL = await getDownloadURL(fileRef)
   updateProfile(user,{photoURL})
