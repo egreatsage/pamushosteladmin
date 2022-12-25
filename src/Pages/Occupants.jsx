@@ -24,16 +24,16 @@ const Occupants = ({ getOccupantId }) => {
      <p className='text-xl text-gray-600 mt-8 text-center'>Occupants Details</p>
     <div className="mt-6 flex gap-6">
       <Link to='/Occupantadd'><button 
-      className='text-white bg-gray-700 px-2 py-2 rounded-md hover:shadow-lg' variant='outlined'>Add  Occupant</button>
+      className='bg-gray-700  px-6 rounded-md  text-white py-1' variant='outlined'>Add  Occupant</button>
        </Link>
       <div className="mb-2">
-        <button className='text-white bg-gray-700 px-2 py-2 rounded-md hover:shadow-lg' onClick={getAllOccupants}>
+        <button className='bg-gray-700  px-6 rounded-md  text-white py-1' onClick={getAllOccupants}>
           Refresh List
         </button>
       </div>
     </div>
     <div className='md:pl-9'>
-    <input type='search' placeholder='Search Here' className='border mt-4 border-gray-500 py-2 rounded-md px-2  '/>
+    <input type='search' placeholder='Search Here' className='border mt-4 border-gray-500 py-1 rounded-md px-2  '/>
     </div>
   
       <div className='overflow-x-auto'>

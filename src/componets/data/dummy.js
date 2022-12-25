@@ -1,11 +1,17 @@
-import {AiFillSetting,AiOutlineUserSwitch} from 'react-icons/ai'
+import {AiFillSetting} from 'react-icons/ai'
+import {TbBrandBooking} from 'react-icons/tb'
+import {BsPeople} from 'react-icons/bs'
+import {MdPeopleOutline,MdOutlinePeopleOutline,MdOutlineAdminPanelSettings} from 'react-icons/md'
+import {SiGoogleclassroom} from 'react-icons/si'
+import {FcTodoList} from 'react-icons/fc'
+import {GrUserAdmin} from 'react-icons/gr'
 export const links =[
     {
         title:'Dashboard',
         links:[
             {
                 name:'Dashboard',
-                icon:<AiFillSetting/>
+                icon:<MdOutlineAdminPanelSettings/>
             }
         ]
     },
@@ -14,31 +20,31 @@ export const links =[
         links:[
             {
                 name:'Bookings',
-                icon:<AiFillSetting/>
+                icon:<TbBrandBooking/>
             },
             {
                 name:'Occupants',
-                icon:<AiFillSetting/>
+                icon:<BsPeople/>
             },
             {
                 name:'Users',
-                icon:<AiFillSetting/>
+                icon:<MdPeopleOutline/>
             },
             {
                 name:'Employees',
-                icon:<AiFillSetting/>
+                icon:<MdOutlinePeopleOutline/>
             },
             {
                 name:'Rooms',
-                icon:<AiFillSetting/>
+                icon:<SiGoogleclassroom/>
             },
             {
                 name:'AdminProfile',
-                icon:<AiFillSetting/>
+                icon:<GrUserAdmin/>
             },
             {
                 name:'Reminders',
-                icon:<AiFillSetting/>
+                icon:<FcTodoList/>
             },
         ],
     }

@@ -1,10 +1,10 @@
 import React, { useState,useEffect } from 'react'
-import { Input,Button } from "@material-tailwind/react";
+import { Input} from "@material-tailwind/react";
 import EmployeeDataService from '../Operations';
 import { Alert, Container } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const BookingsAllocate = ({ id, setBookingId ,setOccupantId}) => {
+const BookingsAllocate = ({ id, setBookingId ,setOccupantI}) => {
   const [FName, setFName] = useState('');
   const [LName, setLName] = useState('');
   const [PNumber, setPNumber] = useState('');
@@ -15,9 +15,7 @@ const BookingsAllocate = ({ id, setBookingId ,setOccupantId}) => {
   const [ExitDate, setExitDate] = useState('');
   const [userId, setuserId] = useState('');
   const [message, setmessage] = useState({error: false, msg:''})
-
   const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setmessage("");
@@ -38,11 +36,8 @@ const BookingsAllocate = ({ id, setBookingId ,setOccupantId}) => {
       setmessage({ error: true, msg: err.message });
     }  
   };
- 
-  
-
   const editHandler = async () => {
-    setmessage("successfull updated");
+    setmessage("successfully updated");
     try {
       const docSnap = await EmployeeDataService.getBooking(id);
       setFName(docSnap.data().FName);
@@ -61,7 +56,7 @@ const BookingsAllocate = ({ id, setBookingId ,setOccupantId}) => {
     }
   }, [id]);
   return (
-<div className='pb-9 mb-9 overflow-y-auto'>
+<div className='pb-9 mb-9 overflow-y-auto bg-[#FAFBFB]'>
   <Container className='mb-9 shadow-blue-900'>
   <div className='mb-9'>
       <p className='text-xl text-gray-600 text-center'>Allocation Of Rooms</p>
@@ -75,14 +70,9 @@ const BookingsAllocate = ({ id, setBookingId ,setOccupantId}) => {
         >
           {''}
           {message?.msg}
-          <div>
-         
-          </div>
-        
         </Alert>
       )}
   <form onSubmit={handleSubmit} className='mb-6 overflow-y-auto'  >
-  {/* onSubmit={handleSubmit} */}
 <div className="mt-5 md:mt-0 md:col-span-2">
     <div className="shadow-sm sm:rounded-md">
       <div className="px-4 py-5 bg-white sm:p-6">

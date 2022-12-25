@@ -5,9 +5,8 @@ import EmployeeDataService from '../Operations';
 import { AiFillEdit } from 'react-icons/ai';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 import {Button, Container, LinearProgress, Table,TableBody, TableCell, TableContainer,TableHead, TableRow,} from '@mui/material'
-const Bookings = ({ getBookingId,getOccupantId }) => {
+const Bookings = ({ getBookingId }) => {
   const [bookings, setBookings] = useState([]);
-  const [loading, setloading] = useState(false);
   useEffect(() => {
     getAllBookings();
   }, []);
@@ -19,32 +18,27 @@ const Bookings = ({ getBookingId,getOccupantId }) => {
     await EmployeeDataService.deleteBooking(id);
     getAllBookings();
   };
-  if(loading){
-    return <div>
-      <LinearProgress/>
-    </div>
-  }
+  const [searchedVal, setSearchedVal] = useState("");
   return (
-    <div className='md:px-10 px-2 mb-5 overflow-x-hidden '>
+    <div className='md:px-10 px-2 mb-5 mt-9 pt-9 overflow-x-hidden '>
       <Container>
       <div className='pt-8'>
                  <p className='font-bold mb-3 text-xl  pb-2  text-center'> Booking Details</p>
                  <div className=" md:pl-9 flex gap-6">
       <Link to='/BookingsAdd'><button 
-      className='text-white bg-gray-700 px-2 py-2 rounded-md hover:shadow-lg'>Add Booking</button></Link>
+      className='bg-gray-700  px-6 rounded-md  text-white py-1'>Add Booking</button></Link>
       <div className="mb-2">
-        <button variant='outlined' 
-         className='text-white bg-gray-700 px-2 py-2 rounded-md hover:shadow-lg'
+        <button 
+         className='bg-gray-700  px-6 rounded-md  text-white py-1'
           onClick={getAllBookings}>
           Refresh List
         </button>
       </div>
     </div>
-    <div className='md:pl-9'>
-    <input type='search' placeholder='Search Here' className='border mt-4 border-gray-500 py-2 rounded-md px-2  '/>
+    <div className='md:pl-9 flex justify-end'>
+    <input type='search' placeholder='Search Here' onChange={(e) => setSearchedVal(e.target.value)}  className='border mt-4 border-gray-800 py-1 rounded-md px-2  '/>
     </div>
             <div className='overflow-x-auto md:p-8  '>
-      
         <Table >
         <TableContainer className='shadow-lg'>
         <TableHead >
@@ -71,7 +65,13 @@ const Bookings = ({ getBookingId,getOccupantId }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-        {bookings.map((doc, index) => {
+        {bookings.
+        filter((row) =>
+        !searchedVal.length || row.FName
+          .toString()
+          .toLowerCase()
+          .includes(searchedVal.toString().toLowerCase()) 
+      ).map((doc, index) => {
         return(
           <TableRow key={doc.id}>
             <TableCell>{index + 1}</TableCell>

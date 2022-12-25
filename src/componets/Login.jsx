@@ -1,12 +1,9 @@
 
-
 import { Alert} from '@mui/material'
 import React, { useState } from 'react'
 import { AiOutlineLock, AiOutlineMail } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom'
 import { useUserAuth } from '../contexts/UserAuthContext';
-
-
 const Login = () => {
   const {logIn} = useUserAuth();
   const [email, setEmail] = useState()
@@ -14,9 +11,6 @@ const Login = () => {
   const [error, setError] = useState()
   const navigate = useNavigate();
  const handleSubmit = async (e)=>{
-
-  // submitting the form
-
         e.preventDefault();
         setError("")
         try{

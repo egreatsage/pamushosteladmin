@@ -38,7 +38,6 @@ const AdminProfile = () => {
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      // width: 900,
       bgcolor: 'white',
       border: '2px solid #white',
       boxShadow: 24,
@@ -73,7 +72,7 @@ const AdminProfile = () => {
         <p>Email</p>
         <MenuItem className='mb-3 text-black'> {user && user.email}</MenuItem>
 
-        <MenuItem className='mb-3 text-black'><button  onClick={handleOpen}>Update Account Details</button></MenuItem>
+        <MenuItem className='mb-3 text-black'><button  onClick={handleOpen}>Edit Account</button></MenuItem>
         <Link to='/' className='text-[red] cursor-pointer '>
         <MenuItem className='flex gap-2'>
         <button onClick={handlelogout}>Logout</button>

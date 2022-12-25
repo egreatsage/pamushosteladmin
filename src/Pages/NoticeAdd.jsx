@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Alert,Button} from '@mui/material';
+import { Alert} from '@mui/material';
 import {Textarea,Input} from '@material-tailwind/react'
 import EmployeeDataService from '../Operations';
 const NoticeAdd = ({id, setNoticeId}) => {
@@ -41,7 +41,6 @@ const NoticeAdd = ({id, setNoticeId}) => {
         setCreator(docSnap.data().Creator);
         setNotice(docSnap.data().Notice);
         setTheDate(docSnap.data().TheDate);
-       
       } catch (err) {
         setmessage({ error: true, msg: err.message });
       }
@@ -56,7 +55,6 @@ const NoticeAdd = ({id, setNoticeId}) => {
     <div>
        <div >
        {message?.msg && (
-         
          <Alert 
  color={message?.error?'error' :'info'}
  onClose={()=> setmessage('')}
@@ -66,7 +64,6 @@ const NoticeAdd = ({id, setNoticeId}) => {
    {message?.msg}
  </Alert>
 )}     
-
   <div className="text-center">Add A Notice</div>
          <p className="italic text-sm text-red-300 text-center">students will be able to view these noties in their portal</p>
              <form onSubmit={handleSubmit} className='' >

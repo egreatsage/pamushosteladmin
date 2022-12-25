@@ -1,25 +1,18 @@
 
-import { Input,Button, IconButton } from '@material-tailwind/react';
-import { Alert, Card } from '@mui/material'
+import { Input} from '@material-tailwind/react';
+import { Alert } from '@mui/material';
 import React, { useState } from 'react'
-import { AiOutlineLock, AiOutlineMail } from 'react-icons/ai';
-import { FcGoogle } from 'react-icons/fc';
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useUserAuth } from '../contexts/UserAuthContext';
-
-
 const SignUp = () => {
-  const {signUp,googleSignIn} = useUserAuth();
+  const {signUp} = useUserAuth();
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const [username, setUserName] = useState()
-  const [error, setError] = useState()
-  const [loading, setloading] = useState(false)
+  const [setError] = useState()
+  const [message, setmessage] = useState()
   const navigate = useNavigate();
  const handleSubmit = async (e)=>{
-
-  // submitting the form
-
         e.preventDefault();
         setError("")
         try{
@@ -27,10 +20,24 @@ const SignUp = () => {
             navigate('/Dashboard')
         }catch(err){
           setError("Wrong Credentials")
-                }        }
-  
+                }}
   return (
     <div >
+       {message?.msg && (
+
+<Alert className='Relative'
+color={message?.error? 'error' :'info'}
+onClose={()=> setmessage('')}
+dismissible='true'
+>
+  {''}
+  {message?.msg}
+  <div>
+ 
+  </div>
+
+</Alert>
+)}
        <form onSubmit={handleSubmit} className='border border-gray rounded-md p-3'>
         <p className='text-center text-xl mb-3'>Add Admin</p>
         <div className='mb-3'>

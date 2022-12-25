@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Button,Input} from '@material-tailwind/react'
+import {Input} from '@material-tailwind/react'
 import {Alert} from '@mui/material'
-
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import EmployeeDataService from '../Operations';
-
 const OccupantsAdd = ({ id, setOccupantId }) => {
   const [FName, setFName] = useState('');
   const [LName, setLName] = useState('');
@@ -14,8 +12,6 @@ const OccupantsAdd = ({ id, setOccupantId }) => {
   const [EntryDate, setEntryDate] = useState('');
   const [ExitDate, setExitDate] = useState('');
   const [message, setmessage] = useState({error: false, msg:''})
-
-  
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,9 +28,9 @@ const OccupantsAdd = ({ id, setOccupantId }) => {
         await EmployeeDataService.updateOccupant(id, newOccupant);
         setOccupantId("");
         setmessage({ error: false, msg: "Updated successfully!" });
-        setTimeout(() => {
+       
           navigate('/Occupants');
-      }, 3000);
+    
       } else {
         await EmployeeDataService.addOccupant(newOccupant);
         setmessage({ error: false, msg: "New Occupant added successfully!" });
@@ -68,7 +64,6 @@ const OccupantsAdd = ({ id, setOccupantId }) => {
   return (
     <div>  
   <div className='md:p-9'>
-  
     <p className='text-xl text-gray-600 text-center'>Add or Edit Occupants</p>
     <div className="md:m-9">
     {message?.msg && (
@@ -80,9 +75,7 @@ const OccupantsAdd = ({ id, setOccupantId }) => {
           {''}
           {message?.msg}
         </Alert> 
-      )}
-     
-     
+      )}   
 <form onSubmit={handleSubmit} >
 <div className="mt-5 md:mt-0 md:col-span-2">
     <div className="shadow  sm:rounded-md">

@@ -101,6 +101,10 @@ class EmployeeDataService {
     const occupantDoc = doc(db, "Occupants", id);
     return deleteDoc(occupantDoc);
   };
+  deleteReminder = (id) => {
+    const reminderDoc = doc(db, "Reminders", id);
+    return deleteDoc(reminderDoc);
+  };
   // Bookings
   deleteBooking = (id) => {
     const bookingDoc = doc(db, "Bookings", id);

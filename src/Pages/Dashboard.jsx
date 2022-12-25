@@ -1,6 +1,6 @@
 import { IconButton } from '@material-tailwind/react'
 import { Container, Modal, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React from 'react'
 import {TbBrandBooking} from 'react-icons/tb'
 import {BsPeople} from 'react-icons/bs'
 import {MdPeopleOutline} from 'react-icons/md'
@@ -30,14 +30,14 @@ const Dashboard = () => {
     <div className='mt-12 pt-11'>
       <Container>
       <div className="grid md:grid-cols-4 mb-3 gap-3">
-          <div className="w-full md:w-60   rounded-md mb-4 bg-gray-100">
+          <div className="w-full md:w-60 py-2   rounded-md mb-4 bg-gray-100">
             <IconButton className=' bg-transparent m-3 border border-[#03C9D7]'>
            <TbBrandBooking className='text-[#03C9D7] text-3xl'/>
             </IconButton>
             <div  className='flex justify-center'>
             <p>Bookings</p>
             </div>
-            <Link  className='flex justify-end pr-3' to='/bookings'><button className='bg-gray-700  px-6 rounded-md border text-white py-1'>View</button></Link>
+            <Link  className='flex justify-end pr-3' to='/bookings'><button className=' border border-[#03C9D7] px-6 rounded-md  text-black py-1'>View</button></Link>
           </div>
           <div className="w-full md:w-60   rounded-md mb-4 bg-gray-100">
           <IconButton className='bg-transparent m-3 border border-[#03C9D7]'>
@@ -46,7 +46,7 @@ const Dashboard = () => {
             <div  className='flex justify-center'>
             <p>Occupants</p>
             </div>
-            <Link  className='flex justify-end pr-3' to='/occupants'><button className='bg-gray-700  px-6 rounded-md border text-white py-1'>View</button></Link>
+            <Link  className='flex justify-end pr-3' to='/occupants'><button className=' border border-[#03C9D7] px-6 rounded-md  text-black py-1'>View</button></Link>
           </div>
           <div className="w-full md:w-60   rounded-md mb-4 bg-gray-100">
           <IconButton className='bg-transparent m-3 border border-[#03C9D7]'>
@@ -55,7 +55,7 @@ const Dashboard = () => {
             <div>
             <p className='flex justify-center'>Employees</p>
             </div>
-            <Link  className='flex justify-end pr-3' to='/employees'><button className='bg-gray-700  px-6 rounded-md border text-white py-1'>View</button></Link>
+            <Link  className='flex justify-end pr-3' to='/employees'><button className=' border border-[#03C9D7] px-6 rounded-md  text-black py-1'>View</button></Link>
           </div>
           <div className="w-full md:w-60   rounded-md mb-4 bg-gray-100">
           <IconButton className='bg-transparent m-3 border border-[#03C9D7]'>
@@ -64,7 +64,7 @@ const Dashboard = () => {
             <div  className='flex justify-center'>
             <p>Rooms</p>
             </div>
-            <Link  className='flex justify-end pr-3' to='/rooms'><button className='bg-gray-700  px-6 rounded-md border text-white py-1'>View</button></Link>
+            <Link  className='flex justify-end pr-3' to='/rooms'><button className='  border-[#03C9D7] px-6 rounded-md border text-black py-1'>View</button></Link>
           </div>
       </div>
       <div className='grid md:grid-cols-2 gap-3'>
@@ -91,7 +91,7 @@ const Dashboard = () => {
       </Modal>
       <h1 className='text-center text-2xl font-bold text-gray-800 mb-4'>Notices to Students</h1>
       <div className='flex justify-end'>
-      <button className='bg-gray-700  px-6 rounded-md  text-white py-1' onClick={handleOpen}>Add  Notice</button>
+      <button className=' border border-[#03C9D7] px-6 rounded-md  text-black py-1' onClick={handleOpen}>Add  Notice</button>
       </div>
      
                       <Notices/>

@@ -18,6 +18,7 @@ const Employees = ({getStaffId}) => {
     await EmployeeDataService.deleteStaff(id);
     getAllStaff();
   };
+  const [searchedVal, setSearchedVal] = useState("");
   return (
 <div className='md:px-10 mb-8'>
     <div className='pt-8 md:pl-8'>
@@ -25,17 +26,17 @@ const Employees = ({getStaffId}) => {
             <div className='overflow-x-auto md:p-8 mt-8 '>
     <div className=" md:pl-8 flex gap-6">
       <Link to='/employeeadd'><button 
-      className='text-white bg-gray-700 px-2 py-2 rounded-md hover:shadow-lg'>Add Employee</button>
+      className='bg-gray-700  px-6 rounded-md  text-white py-1'>Add Employee</button>
        </Link>
       <div className="mb-2">
-        <button v className='text-white bg-gray-700 px-2 py-2 rounded-md hover:shadow-lg' onClick={getAllStaff}>
+        <button v className='bg-gray-700  px-6 rounded-md  text-white py-1' onClick={getAllStaff}>
           Refresh List
         </button>
        
       </div>
     </div>
     <div className='md:pl-9'>
-    <input type='search' placeholder='Search Here' className='border mt-4 border-gray-500 py-2 rounded-md px-2  '/>
+    <input type='search' placeholder='Search Here' onChange={(e) => setSearchedVal(e.target.value)}  className='border mt-4 border-gray-500 py-1 rounded-md px-2  '/>
     </div>
       <div className='overflow-x-auto md:pl-8'>
       <Table >
@@ -54,7 +55,13 @@ const Employees = ({getStaffId}) => {
               <TableCell>Delete</TableCell>        
        </TableRow>
        <TableBody >
-       {staffs.map((doc, index) => {
+       {staffs
+       .filter((row) =>
+       !searchedVal.length || row.fullname
+         .toString()
+         .toLowerCase()
+         .includes(searchedVal.toString().toLowerCase()) 
+     ).map((doc, index) => {
         return(
           <TableRow key={doc.id}>
           <TableCell> {index + 1}</TableCell>

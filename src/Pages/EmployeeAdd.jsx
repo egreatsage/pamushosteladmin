@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import {Input} from "@material-tailwind/react";
-import { Alert,Button} from '@mui/material';
+import { Alert} from '@mui/material';
 import EmployeeDataService from '../Operations';
 import {  useNavigate } from 'react-router-dom';
 
@@ -70,15 +70,10 @@ const EmployeeAdd = ({ id, setStaffId }) => {
       editHandler();
     }
   }, [id]);
-  const [open, setOpen] = React.useState(false);
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleToggle = () => {
-    setOpen(!open);
-  };
+ 
+ 
   return (
-    <div className='pt-5'>
+    <div className='pt-5 bg-[#FAFBFB]'>
     <p className='text-xl text-gray-600 text-center'>Add Or Edit Employee Details</p>
        
     <div class="mt-5 ">
@@ -94,7 +89,7 @@ const EmployeeAdd = ({ id, setStaffId }) => {
       <div className='md:pl-9 '>
       </div>
   <form onSubmit={handleSubmit} >
-  <div className="mt-5 md:mt-0 md:col-span-2">
+  <div className="mt-5 md:mt-0 md:col-span-2 ">
     <div className="shadow  sm:rounded-md">
       <div className="px-4 py-5 bg-white sm:p-6">
         <div className="grid grid-cols-6 gap-6">

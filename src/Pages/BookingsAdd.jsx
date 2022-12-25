@@ -1,11 +1,8 @@
 import React, { useState,useEffect } from 'react'
-import { Input,Button } from "@material-tailwind/react";
+import { Input } from "@material-tailwind/react";
 import EmployeeDataService from '../Operations';
 import { Alert, Container } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
-import { Navbar } from '../componets';
-
-
+import {  useNavigate } from 'react-router-dom'
 const BookingsAdd = ({ id, setBookingId }) => {
   const [FName, setFName] = useState('');
   const [LName, setLName] = useState('');
@@ -16,7 +13,7 @@ const BookingsAdd = ({ id, setBookingId }) => {
   const [PGContact, setPGContact] = useState('');
   const [PGName, setPGName] = useState('');
   const [EName, setEName] = useState('');
-  const [HomeCounty, setHomeCounty] = useState('');
+  const [Homecounty, setHomecounty] = useState('');
   const [EContact, setEContact] = useState('');
   const [Relation, setRelation] = useState('');
   const [Institution, setInstitution] = useState('');
@@ -34,7 +31,7 @@ const BookingsAdd = ({ id, setBookingId }) => {
     const newBooking = {
      FName,LName,Gender,PNumber,PGContact,Age,PGName,
      EName,EContact,Relation,Institution,YearOfStudy,
-     MaritalStatus,HomeCounty,Category
+     MaritalStatus,Homecounty,Category
     };
     try {
       if (id !== undefined && id !== "") {
@@ -55,12 +52,12 @@ const BookingsAdd = ({ id, setBookingId }) => {
     setFName(""); setLName("");setGender("");setPGContact("");setPNumber("");
     setAge("");setPGName(""); setEName(''); setEContact(''); setRelation(''); 
     setInstitution(''); setMaritalStatus('');
-    setYearOfStudy('');   setHomeCounty(''); setCategory('');
+    setYearOfStudy('');   setHomecounty(''); setCategory('');
     
   };
 
   const editHandler = async () => {
-    setmessage("successfull updated");
+    setmessage("successfully updated");
     try {
       const docSnap = await EmployeeDataService.getBooking(id);
       setFName(docSnap.data().FName);
@@ -76,7 +73,7 @@ const BookingsAdd = ({ id, setBookingId }) => {
       setInstitution(docSnap.data().Institution);
       setYearOfStudy(docSnap.data().YearOfStudy);
       setMaritalStatus(docSnap.data().MaritalStatus);
-      setHomeCounty(docSnap.data().HomeCounty);
+      setHomecounty(docSnap.data().Homecounty);
       setCategory(docSnap.data().Category);
 
     } catch (err) {
@@ -89,7 +86,7 @@ const BookingsAdd = ({ id, setBookingId }) => {
     }
   }, [id]);
   return (
-<div className='pb-9 mb-9 overflow-y-auto bg-white'>
+<div className='pb-9 mb-9 overflow-y-auto bg-[#FAFBFB]'>
   <Container className='mb-9 shadow-blue-900'>
   <div className='mb-9'>
 
@@ -145,8 +142,8 @@ const BookingsAdd = ({ id, setBookingId }) => {
             <Input  label="Home County" type="text" 
             className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full 
             shadow-sm sm:text-sm border-gray-300 rounded-md"
-            value={HomeCounty} 
-            onChange={(e)=>setHomeCounty(e.target.value)}/>
+            value={Homecounty} 
+            onChange={(e)=>setHomecounty(e.target.value)}/>
           </div>
           <div className="col-span-6 sm:col-span-3">
             <Input  label="Gender" type="text" 
