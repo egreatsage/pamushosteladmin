@@ -174,7 +174,7 @@ export default new EmployeeDataService();
 
 export async function upload(file,user,setLoading){
   const fileRef = ref(storage,user.uid )
-   setLoading(true)
+   setLoading(true) // eslint-disable-next-line 
    const snapshot = await uploadBytes(fileRef,file)
   const photoURL = await getDownloadURL(fileRef)
   updateProfile(user,{photoURL})
