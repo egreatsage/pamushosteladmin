@@ -38,7 +38,7 @@ dismissible='true'
 
 </Alert>
 )}
-       <form onSubmit={handleSubmit} className='border border-gray rounded-md p-3'>
+       <form onSubmit={handleSubmit} className='border border-gray rounded-md  md:w-96 '>
         <p className='text-center text-xl mb-3'>Add Admin</p>
         <div className='mb-3'>
         <Input className='mb-6'  label='Username' type='text'

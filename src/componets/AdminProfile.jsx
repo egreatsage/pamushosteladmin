@@ -79,8 +79,8 @@ const AdminProfile = () => {
         </Link>
       </MenuList>
     </Menu>
-  <div>
-  <Modal className=' px-3 md:px-9'
+  <div className='md:flex md:justify-center'>
+  <Modal className=' md:px-9'
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -100,11 +100,12 @@ const AdminProfile = () => {
           <Typography id="modal-modal-title" variant="h6" component="h2">
           <input  type='file'
             onChange={handleChange}/>
-            <button disabled={loading || !photo} onClick={handleClick} className='bg-gray-700 px-2 py-1 rounded-md mt-2 text-white '>upload</button> 
+            <button disabled={loading || !photo} onClick={handleClick} className='bg-gray-700 px-2  rounded-md mt-2 text-white '>upload</button> 
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           </Typography>
-          <div className='md:w-full w-96'>
+         
+          <div className='md:w-96 m:justify-center md:flex  '>
           <SignUp/>
           </div>
          

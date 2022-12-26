@@ -1,4 +1,4 @@
-import { Tooltip } from '@mui/material'
+import { Divider, Tooltip } from '@mui/material'
 import React from 'react'
 import {BiMenuAltLeft} from 'react-icons/bi'
 import { Link } from 'react-router-dom'
@@ -32,7 +32,10 @@ const Navbar = () => {
         <div className='flex gap-4 mb-5  rounded-md px-4 py-2 hover:bg-gray-100 hover:text-black '><MdOutlinePeopleOutline className='text-[indigo] text-2xl'/><Link  to='/employees'>Employees</Link></div>
         <div className='flex gap-4 mb-5  rounded-md px-4 py-2 hover:bg-gray-100 hover:text-black '><SiGoogleclassroom className='text-[indigo] text-2xl'/><Link  to='/rooms'>Rooms</Link></div>
         <div className='flex gap-4 mb-5  rounded-md px-4 py-2 hover:bg-gray-100 hover:text-black '><MdPeopleOutline className='text-[indigo] text-2xl'/><Link  to='/users'>Users</Link></div>
+         
+          <Divider/>
         <div className='flex gap-4 mb-5  rounded-md px-4 py-2 hover:bg-gray-100 hover:text-black '><FcTodoList className='text-[indigo] text-2xl' /><Link  to='/reminders'>My ToDo</Link></div>
+        <div className='flex gap-4 mb-5  rounded-md px-4 py-2 hover:bg-gray-100 hover:text-black '><FcTodoList className='text-[indigo] text-2xl' /><Link  to='/profile'>Admin Profile</Link></div>
       </div>
     </div>
   </div>
