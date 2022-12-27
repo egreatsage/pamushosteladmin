@@ -69,7 +69,6 @@ function App() {
                 </ProtectedRoute>}/>
               
               <Route path="/users" element={<ProtectedRoute><Users/></ProtectedRoute>}/>
-              <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
               <Route path="/occupants" element={<ProtectedRoute>
                 <Occupants  getOccupantId={getOccupantHandler}/>
                 </ProtectedRoute>}/>

@@ -14,11 +14,12 @@ const Login = () => {
         e.preventDefault();
         setError("")
         try{
-          await logIn(email,password);
-            navigate('/')
+          await logIn(email,password).then(()=>{navigate('/')})
+          
         }catch(err){
           setError("Wrong Credentials")
                 }}
+               
   return (
     <div>
          <div
