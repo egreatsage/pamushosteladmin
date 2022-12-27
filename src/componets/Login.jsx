@@ -23,10 +23,9 @@ const Login = () => {
   return (
     <div>
       <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
-      
             <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-900/40   lg:max-w-xl">
                 <h1 className="text-3xl mb-10 text-center text-indigo-700 uppercase ">
-                   Admin Sign In
+                   Admin Login
                 </h1>
                 {error && <Alert color='error'>{error}</Alert>}
                 <form className="mt-6" onSubmit={handleSubmit} >
