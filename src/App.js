@@ -44,8 +44,7 @@ function App() {
     <div>
     
     <BrowserRouter>
-    
-             <ProtectedRoute><Navbar/></ProtectedRoute>
+           
               <Routes>
               <Route path="/" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
               <Route path="/bookings" element={

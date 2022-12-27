@@ -3,6 +3,7 @@ import { Input } from "@material-tailwind/react";
 import EmployeeDataService from '../Operations';
 import { Alert, Container } from '@mui/material';
 import {  useNavigate } from 'react-router-dom'
+import { Navbar } from '../componets';
 const BookingsAdd = ({ id, setBookingId }) => {
   const [FName, setFName] = useState('');
   const [LName, setLName] = useState('');
@@ -87,7 +88,9 @@ const BookingsAdd = ({ id, setBookingId }) => {
     }   //eslint-disable-next-line
   }, [id]);
   return (
-<div className='pb-9 mb-9 overflow-y-auto bg-[#FAFBFB]'>
+    <div>
+        <div><Navbar/></div>
+        <div className='pb-9 mb-9 overflow-y-auto bg-[#FAFBFB]'>
   <Container className='mb-9 shadow-blue-900'>
   <div className='mb-9'>
 
@@ -245,6 +248,8 @@ const BookingsAdd = ({ id, setBookingId }) => {
   </Container>
     
 </div>
+    </div>
+
   )
 }
 

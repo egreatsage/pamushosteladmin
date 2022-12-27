@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { AiFillEdit, AiOutlineSearch } from 'react-icons/ai';
 import {  MdOutlineDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { Navbar } from '../componets';
 import EmployeeDataService from '../Operations';
 const Employees = ({getStaffId}) => {
   const [staffs, setStaff] = useState([]);
@@ -21,7 +22,9 @@ const Employees = ({getStaffId}) => {
   };
   const [searchedVal, setSearchedVal] = useState("");
   return (
-<div className='md:px-10 mb-8'>
+    <div>
+        <div><Navbar/></div>
+        <div className='md:px-10 mb-8'>
     <div className='pt-8 md:pl-8'>
     <p className='text-xl text-gray-600 text-center'>Staff Details</p>
             <div className='overflow-x-auto md:p-8 mt-8 '>
@@ -101,6 +104,8 @@ const Employees = ({getStaffId}) => {
       </div>
     </div>
     </div>
+    </div>
+
 
   )
 }

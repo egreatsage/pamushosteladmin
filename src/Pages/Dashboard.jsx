@@ -1,6 +1,6 @@
 import { IconButton} from '@material-tailwind/react'
 import { Container, Modal, Typography } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import {TbBrandBooking} from 'react-icons/tb'
 import {BsPeople} from 'react-icons/bs'
 import {MdPeopleOutline} from 'react-icons/md'
@@ -10,10 +10,10 @@ import Messages from './Messages'
 import Notices from './Notices'
 import NoticeAdd from './NoticeAdd'
 import { Box } from '@mui/system'
+import { Navbar } from '../componets'
 
 const Dashboard = () => {
-  
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const style = {
@@ -27,9 +27,11 @@ const Dashboard = () => {
     boxShadow: 24,
     p: 4,
   };
-  
   return (
-    <div className='mt-12 pt-11'>
+    <div>
+  <div><Navbar/></div>
+  <div className='mt-12 pt-11'>
+    
       <Container>
       <div className="grid md:grid-cols-4 mb-3 gap-3">
           <div className="w-full md:w-60 py-2   rounded-md mb-4 bg-gray-100">
@@ -102,6 +104,8 @@ const Dashboard = () => {
       </Container>
   
     </div>
+    </div>
+    
   )
 }
 

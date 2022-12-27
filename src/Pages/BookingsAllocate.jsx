@@ -3,6 +3,7 @@ import { Input} from "@material-tailwind/react";
 import EmployeeDataService from '../Operations';
 import { Alert, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { Navbar } from '../componets';
 
 const BookingsAllocate = ({ id, setBookingId ,setOccupantI}) => {
   const [FName, setFName] = useState('');
@@ -56,7 +57,9 @@ const BookingsAllocate = ({ id, setBookingId ,setOccupantI}) => {
     }   //eslint-disable-next-line
   }, [id]);
   return (
-<div className='pb-9 mb-9 overflow-y-auto bg-[#FAFBFB]'>
+    <div>
+      <div><Navbar/></div>
+      <div className='pb-9 mb-9 overflow-y-auto bg-[#FAFBFB]'>
   <Container className='mb-9 shadow-blue-900'>
   <div className='mb-9'>
       <p className='text-xl text-gray-600 text-center'>Allocation Of Rooms</p>
@@ -164,6 +167,8 @@ const BookingsAllocate = ({ id, setBookingId ,setOccupantI}) => {
   </Container>
     
 </div>
+    </div>
+
   )
 }
 

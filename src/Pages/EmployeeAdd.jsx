@@ -3,6 +3,7 @@ import {Input} from "@material-tailwind/react";
 import { Alert} from '@mui/material';
 import EmployeeDataService from '../Operations';
 import {  useNavigate } from 'react-router-dom';
+import { Navbar } from '../componets';
 
 const EmployeeAdd = ({ id, setStaffId }) => {
   const [fullname, setfullname] = useState('');
@@ -73,7 +74,9 @@ const EmployeeAdd = ({ id, setStaffId }) => {
  
  
   return (
-    <div className='pt-5 bg-[#FAFBFB]'>
+    <div>
+       <div><Navbar/></div>
+       <div className='pt-5 bg-[#FAFBFB]'>
     <p className='text-xl text-gray-600 text-center'>Add Or Edit Employee Details</p>
        
     <div class="mt-5 ">
@@ -177,6 +180,8 @@ const EmployeeAdd = ({ id, setStaffId }) => {
       
     
     </div>
+    </div>
+   
   )
 }
 

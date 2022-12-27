@@ -6,6 +6,7 @@ import { AiFillEdit, AiOutlineSearch } from 'react-icons/ai';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 import {Button, Container, Table,TableBody, TableCell, TableContainer,TableHead, TableRow,} from '@mui/material'
 import { Input } from '@material-tailwind/react';
+import { Navbar } from '../componets';
 const Bookings = ({ getBookingId }) => {
   const [bookings, setBookings] = useState([]);
   useEffect(() => {
@@ -21,7 +22,9 @@ const Bookings = ({ getBookingId }) => {
   };
   const [searchedVal, setSearchedVal] = useState("");
   return (
-    <div className='md:px-10 px-2 mb-5 mt-9 pt-9 overflow-x-hidden '>
+    <div>
+       <div><Navbar/></div>
+       <div className='md:px-10 px-2 mb-5 mt-9 pt-9 overflow-x-hidden '>
       <Container>
       <div className='pt-8'>
                  <p className='font-bold mb-3 text-xl  pb-2  text-center'> Booking Details</p>
@@ -125,6 +128,8 @@ const Bookings = ({ getBookingId }) => {
       </Container>
     
             </div>
+    </div>
+   
   )
 }
 

@@ -45,7 +45,7 @@ const AdminProfile = () => {
     const handlelogout= async ()=>{
         try{
             await logOut();
-               navigate('/')
+               navigate('/login')
         }catch{     
         }
       }
@@ -71,11 +71,11 @@ const AdminProfile = () => {
         <MenuItem className='mb-3 text-black'> {user && user.email}</MenuItem>
 
         <MenuItem className='mb-3 text-black'><button  onClick={handleOpen}>Edit Account</button></MenuItem>
-        <Link to='/' className='text-[red] cursor-pointer '>
-        <MenuItem className='flex gap-2'>
+        <Link to='/' className='text-[red] cursor-pointer ml-5 outline-gray-900 '>
+        
         <button onClick={handlelogout}>Logout</button>
-        <FiLogOut/>
-        </MenuItem>
+        
+      
         </Link>
       </MenuList>
     </Menu>
