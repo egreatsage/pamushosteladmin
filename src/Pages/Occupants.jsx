@@ -5,6 +5,7 @@ import EmployeeDataService from '../Operations';
 import { AiFillEdit, AiOutlineSearch } from 'react-icons/ai';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 import { Input } from '@material-tailwind/react';
+import { Navbar } from '../componets';
 const Occupants = ({ getOccupantId }) => {
   const [occupants, setOccupants] = useState([]);
   useEffect(() => {
@@ -21,7 +22,9 @@ const Occupants = ({ getOccupantId }) => {
   };
   const [searchedVal, setSearchedVal] = useState("");
   return (
-    <div className='mt-9 pt-8 px-2'> 
+    <div>
+       <div><Navbar/></div>
+       <div className='mt-9 pt-8 px-2'> 
      <p className='text-xl text-gray-600 mt-8 text-center'>Occupants Details</p>
      <div className="md:flex md:justify-between">
      <div className="mt-6 flex gap-6">
@@ -95,6 +98,9 @@ const Occupants = ({ getOccupantId }) => {
       </Table>
       </div>
     </div>
+    </div>
+   
+    
   )
 }
 

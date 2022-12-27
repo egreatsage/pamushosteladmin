@@ -2,6 +2,7 @@ import { Input, Textarea } from '@material-tailwind/react'
 import { Alert, Divider } from '@mui/material';
 import React, { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { Navbar } from '../componets';
 import EmployeeDataService from '../Operations';
 
 const Reminders = () => {
@@ -42,7 +43,9 @@ const Reminders = () => {
     getAllReminders();
   };
   return (
-    <div className='mt-9 pt-9'>
+    <div>
+      <Navbar/>
+       <div className='mt-9 pt-9'>
       <div className='mt-9 md:mx-9 mx-2'>
       {message?.msg && (
       
@@ -97,6 +100,8 @@ const Reminders = () => {
         })}
       </div>
     </div>
+    </div>
+   
   )
 }
 

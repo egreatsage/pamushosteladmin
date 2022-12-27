@@ -3,6 +3,7 @@ import {Input} from '@material-tailwind/react'
 import {Alert} from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 import EmployeeDataService from '../Operations';
+import { Navbar } from '../componets';
 const OccupantsAdd = ({ id, setOccupantId }) => {
   const [FName, setFName] = useState('');
   const [LName, setLName] = useState('');
@@ -63,6 +64,7 @@ const OccupantsAdd = ({ id, setOccupantId }) => {
   }, [id]);
   return (
     <div>  
+       <div><Navbar/></div>
   <div className='md:p-9'>
     <p className='text-xl text-gray-600 text-center'>Add or Edit Occupants</p>
     <div className="md:m-9">

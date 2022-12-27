@@ -1,8 +1,11 @@
 import React from 'react'
+import { Navbar } from '../componets'
 
 const Rooms = () => {
   return (
-    <div>Rooms</div>
+    <div>
+       <div><Navbar/></div>
+    </div>
   )
 }
 

@@ -2,6 +2,7 @@ import React,{useEffect, useState ,Fragment}from 'react';
 import EmployeeDataService from '../Operations';
 import {RiArrowDropDownLine} from 'react-icons/ri'
 import {Accordion,AccordionHeader,AccordionBody,} from '@material-tailwind/react'
+import { Navbar } from '../componets';
 const Messages = () => {
   const [messages, setMessages] = useState([]);
   useEffect(() => {
@@ -31,7 +32,8 @@ const Messages = () => {
     setOpenn(openn === value ? 0 : value);
   };
   return (
-              <div className='md:mt-12 pt-1 border border-blue-gray-50 shadow-lg rounded-md'>
+    <div>
+        <div className='md:mt-12 pt-1 border border-blue-gray-50 shadow-lg rounded-md'>
                   {messages.map((doc,index)=>{
 return(
   <div className='  w-full px-2 my-4  rounded-md'>
@@ -57,6 +59,9 @@ return(
 })}
 
               </div>
+    </div>
+
+            
         
      
   )

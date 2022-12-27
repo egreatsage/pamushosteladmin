@@ -14,7 +14,8 @@ const Login = () => {
         e.preventDefault();
         setError("")
         try{
-          await logIn(email,password).then(()=>{navigate('/')})
+          await logIn(email,password);
+          navigate('/')
           
         }catch(err){
           setError("Wrong Credentials")
