@@ -1,5 +1,4 @@
-import { Input } from '@material-tailwind/react'
-import { AiOutlineLock, AiOutlineMail } from 'react-icons/ai'
+
 import { Alert} from '@mui/material'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -21,7 +20,7 @@ const Login = () => {
           setError("Wrong Credentials")
                 }}
   return (
-    <div>
+    <div className='bg-gray-200'>
       <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
             <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-900/40   lg:max-w-xl">
                 <h1 className="text-3xl mb-10 text-center text-indigo-700 uppercase ">

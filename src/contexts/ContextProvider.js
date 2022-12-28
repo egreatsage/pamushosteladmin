@@ -8,7 +8,6 @@ const initialState = {
   adminProfile: false,
   notifications: false,
 };
-
 export const ContextProvider = ({ children }) => {
   const [screenSize, setScreenSize] = useState(undefined);
   const [currentColor, setCurrentColor] = useState('#03C9D7');

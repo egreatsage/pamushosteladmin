@@ -1,7 +1,7 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'; 
-import {Navbar,Login, Sidebar} from './componets'
+import {Login} from './componets'
 import Bookings from './Pages/Bookings'
 import ProtectedRoute from './componets/ProtectedRoute';
 import Messages from './Pages/Messages';
@@ -89,7 +89,7 @@ function App() {
               <ProtectedRoute>
                 <BookingsAllocate id={bookingId} setBookingId={setBookingId}/>
               </ProtectedRoute>}/>
-              <Route path="/sidebar" element={<ProtectedRoute><Sidebar/></ProtectedRoute>}/>
+          
               <Route path="/Reminders" element={<ProtectedRoute><Reminders/></ProtectedRoute>}/>
               <Route path="/login" element={<Login/>}/>              
             </Routes>

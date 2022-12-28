@@ -2,7 +2,6 @@ import React,{useEffect, useState ,Fragment}from 'react';
 import EmployeeDataService from '../Operations';
 import {RiArrowDropDownLine} from 'react-icons/ri'
 import {Accordion,AccordionHeader,AccordionBody,} from '@material-tailwind/react'
-import { Navbar } from '../componets';
 const Messages = () => {
   const [messages, setMessages] = useState([]);
   useEffect(() => {
@@ -27,7 +26,6 @@ const Messages = () => {
     );
   }
   const [openn, setOpenn] = useState(0);
- 
   const handleOpenn = (value) => {
     setOpenn(openn === value ? 0 : value);
   };

@@ -2,7 +2,6 @@ import { Alert, Modal, Tooltip, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useUserAuth } from '../contexts/UserAuthContext';
 import { upload } from '../Operations';
-import {FiLogOut} from 'react-icons/fi'
 import {Menu,MenuHandler,MenuList,MenuItem,} from "@material-tailwind/react";
 import { Box } from '@mui/system';
 import { Link, useNavigate } from 'react-router-dom';
@@ -72,10 +71,7 @@ const AdminProfile = () => {
 
         <MenuItem className='mb-3 text-black'><button  onClick={handleOpen}>Edit Account</button></MenuItem>
         <Link to='/' className='text-[red] cursor-pointer ml-5 outline-gray-900 '>
-        
         <button onClick={handlelogout}>Logout</button>
-        
-      
         </Link>
       </MenuList>
     </Menu>

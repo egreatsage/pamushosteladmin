@@ -5,7 +5,6 @@ const bookingCollectionRef = collection(db, "Bookings");
 const messagesCollectionRef = collection(db, "Messages")
 
 class dbdataservice {
- 
   //Bookings
   addBooking = (newBooking) => {
     return addDoc(bookingCollectionRef, newBooking);
