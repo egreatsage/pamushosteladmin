@@ -1,5 +1,6 @@
 
-import { Alert} from '@mui/material'
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { Alert, IconButton, InputAdornment} from '@mui/material'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useUserAuth } from '../contexts/UserAuthContext';
@@ -9,6 +10,19 @@ const Login = () => {
   const [password, setPassword] = useState()
   const [error, setError] = useState()
   const navigate = useNavigate();
+   const [values, setValues] =useState({
+        password: "",
+        showPassword: false,
+      });
+    const handleClickShowPassword = () => {
+            setValues({ ...values, showPassword: !values.showPassword });
+          };
+    const handleMouseDownPassword = (event) => {
+                event.preventDefault();
+              };
+             const handlePasswordChange = (prop) => (event) => {
+                    setValues({ ...values, [prop]: event.target.value });
+                  };
  const handleSubmit = async (e)=>{
         e.preventDefault();
         setError("")
@@ -48,9 +62,23 @@ const Login = () => {
                             Password
                         </label>
                         <input
-                            type="password"
+                           
                             className="block w-full px-4 py-2 mt-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                            onChange={e=>setPassword(e.target.value)} />
+                           
+                             type={values.showPassword ? "text" : "password"}
+        onChange={handlePasswordChange("password")}
+        value={values.password}
+        endAdornment={
+          <InputAdornment position="end">
+            <IconButton
+              onClick={handleClickShowPassword}
+              onMouseDown={handleMouseDownPassword}
+            >
+              {values.showPassword ? <Visibility /> : <VisibilityOff />}
+            </IconButton>
+          </InputAdornment>
+        }
+                            />
                     </div>
                    
                     <div className="mt-12">
