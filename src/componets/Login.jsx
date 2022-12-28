@@ -38,6 +38,7 @@ const Login = () => {
                     <div className="mb-7">
                       
                         <Input
+                        color='teal'
                            className='text-black text-md'
                            type='email'
                            variant='standard'
@@ -47,6 +48,7 @@ const Login = () => {
                     <div className="my-6">
                       
                         <Input 
+                        color='teal'
                         className='text-black text-md'
                         type={passwordShown ? "text" : "password"} label='Password' variant='standard' icon={<AiOutlineEye className='cursor-pointer' onClick={togglePassword}/>}
                           onChange={e=>setPassword(e.target.value)} />
