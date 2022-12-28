@@ -1,7 +1,8 @@
 
-import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { Alert, IconButton, InputAdornment} from '@mui/material'
+import { Input } from '@material-tailwind/react';
+import { Alert} from '@mui/material'
 import React, { useState } from 'react'
+import { AiOutlineEye } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom'
 import { useUserAuth } from '../contexts/UserAuthContext';
 const Login = () => {
@@ -10,19 +11,6 @@ const Login = () => {
   const [password, setPassword] = useState()
   const [error, setError] = useState()
   const navigate = useNavigate();
-   const [values, setValues] =useState({
-        password: "",
-        showPassword: false,
-      });
-    const handleClickShowPassword = () => {
-            setValues({ ...values, showPassword: !values.showPassword });
-          };
-    const handleMouseDownPassword = (event) => {
-                event.preventDefault();
-              };
-             const handlePasswordChange = (prop) => (event) => {
-                    setValues({ ...values, [prop]: event.target.value });
-                  };
  const handleSubmit = async (e)=>{
         e.preventDefault();
         setError("")
@@ -33,56 +21,39 @@ const Login = () => {
         }catch(err){
           setError("Wrong Credentials")
                 }}
+                const [passwordShown, setPasswordShown] = useState(false);
+                const togglePassword = () => {
+                
+                  setPasswordShown(!passwordShown);
+                };
   return (
-    <div className='bg-gray-200'>
+    <div>
       <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
             <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-900/40   lg:max-w-xl">
-                <h1 className="text-3xl mb-10 text-center text-indigo-700 uppercase ">
+                <h1 className="text-3xl mb-10 text-center text-black font-semibold uppercase ">
                    Admin Login
                 </h1>
                 {error && <Alert color='error'>{error}</Alert>}
                 <form className="mt-6" onSubmit={handleSubmit} >
                     <div className="mb-7">
-                        <label
-                            for="email"
-                            className="block text-sm font-semibold text-gray-800"
-                        >
-                            Email
-                        </label>
-                        <input
-                            type="email"
-                            className="block w-full px-4 py-2 mt- text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                      
+                        <Input
+                           className='text-black text-md'
+                           type='email'
+                           variant='standard'
+                           label='Email Or Username'
                             onChange={e=>setEmail(e.target.value)}/>
                     </div>
-                    <div className="mb-4">
-                        <label
-                            for="password"
-                            className="block text-sm font-semibold text-gray-800"
-                        >
-                            Password
-                        </label>
-                        <input
-                           
-                            className="block w-full px-4 py-2 mt-2 text-indigo-700 bg-white border rounded-md focus:border-indigo-400 focus:ring-indigo-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                           
-                             type={values.showPassword ? "text" : "password"}
-        onChange={handlePasswordChange("password")}
-        value={values.password}
-        endAdornment={
-          <InputAdornment position="end">
-            <IconButton
-              onClick={handleClickShowPassword}
-              onMouseDown={handleMouseDownPassword}
-            >
-              {values.showPassword ? <Visibility /> : <VisibilityOff />}
-            </IconButton>
-          </InputAdornment>
-        }
-                            />
+                    <div className="my-6">
+                      
+                        <Input 
+                        className='text-black text-md'
+                        type={passwordShown ? "text" : "password"} label='Password' variant='standard' icon={<AiOutlineEye className='cursor-pointer' onClick={togglePassword}/>}
+                          onChange={e=>setPassword(e.target.value)} />
                     </div>
                    
                     <div className="mt-12">
-                        <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-indigo-700 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">
+                        <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black">
                             Login
                         </button>
                     </div>
