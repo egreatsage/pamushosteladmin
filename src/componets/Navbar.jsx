@@ -10,7 +10,7 @@ import {FcTodoList} from 'react-icons/fc'
 import AdminProfile from './AdminProfile'
 const Navbar = () => {
   return (
-    <div className='my-4  shadow-lg'>
+    <div className='my-4 shadow-sm'>
          <div className='flex justify-between my-2 md:mx-4 mx-1 '>
         <div>
         <div className="flex space-x-2">
@@ -37,7 +37,7 @@ const Navbar = () => {
   </div>
 </div>
         </div>
-        <div><h1>Pamus Admin</h1></div>
+        <div><p className='text-2xl'>Pamus Admin</p></div>
         <div>
           <AdminProfile/>
         </div>
