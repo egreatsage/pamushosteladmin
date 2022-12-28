@@ -1,6 +1,6 @@
 
 import { Input } from '@material-tailwind/react';
-import { Alert} from '@mui/material'
+import { Alert, LinearProgress} from '@mui/material'
 import React, { useState } from 'react'
 import { AiOutlineEye } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom'
@@ -26,6 +26,13 @@ const Login = () => {
                 
                   setPasswordShown(!passwordShown);
                 };
+                const [isloading, setisloading] = useState(false)
+  const  handleclick=()=>{
+    setisloading(true)
+    setTimeout(() => {
+      setisloading(false);
+    }, 3000);
+  }
   return (
     <div>
       <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -55,9 +62,19 @@ const Login = () => {
                     </div>
                    
                     <div className="mt-12">
-                        <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black">
-                            Login
+                    {
+            isloading ?(
+             
+              <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-800 focus:outline-none ">
+             <span>Signing in</span> <LinearProgress />
+          </button>
+            ):(
+                <button onClick={handleclick} type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black">
+                            Sign In
                         </button>
+            )
+          }
+                     
                     </div>
                 </form>
 
