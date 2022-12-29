@@ -1,6 +1,6 @@
 import { Divider } from '@mui/material'
 import React from 'react'
-import {BiMenuAltLeft} from 'react-icons/bi'
+import {HiMenuAlt1} from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import {TbBrandBooking} from 'react-icons/tb'
 import {BsPeople} from 'react-icons/bs'
@@ -11,11 +11,11 @@ import AdminProfile from './AdminProfile'
 const Navbar = () => {
   return (
     <div className='my-4 shadow-sm'>
-         <div className='flex justify-between my-2 md:mx-4 mx-1 '>
-        <div>
-        <div className="flex space-x-2">
+          <div className='flex justify-between my-2 md:mx-4 mx-1 '>
+          <div>
+          <div className="flex space-x-2">
   <div>
-    <BiMenuAltLeft className="inline-block  text-[indigo] text-3xl  transition duration-300 ease-in-out mr-1.5" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"/>
+    <HiMenuAlt1 className="inline-block  text-[indigo] text-3xl  transition duration-300 ease-in-out mr-1.5" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"/>
     <div className="offcanvas offcanvas-start shadow-lg fixed bottom-0 flex flex-col max-w-full bg-white invisible bg-clip-padding  outline-gray-100 transition duration-300 ease-in-out text-gray-700 top-0 left-0 border-none w- w-88" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div className="offcanvas-header flex items-center justify-between p-4">
         <h5 className="offcanvas-title mb-0 leading-normal font-semibold" id="offcanvasExampleLabel">Pamus Admin</h5>
